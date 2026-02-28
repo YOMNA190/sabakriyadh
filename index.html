@@ -33,6 +33,7 @@
             font-family: 'Cairo', sans-serif;
             background-color: #ffffff;
             color: var(--text-dark);
+            scroll-behavior: smooth; /* التمرير السلس */
         }
         .container-custom {
             max-width: 1280px;
@@ -147,6 +148,13 @@
             opacity: 1;
             transform: translateY(0);
         }
+        /* روابط التنقل */
+        .nav-link {
+            transition: color 0.3s;
+        }
+        .nav-link:hover {
+            color: var(--primary-blue);
+        }
     </style>
 </head>
 <body>
@@ -156,13 +164,22 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- الهيدر -->
+    <!-- الهيدر مع روابط الأقسام -->
     <header class="fixed top-0 left-0 w-full z-50 bg-white/97 backdrop-blur-sm border-b border-[#E2E8F0] py-3">
         <div class="container-custom flex justify-between items-center">
-            <a href="/" class="flex items-center gap-3">
+            <a href="#home" class="flex items-center gap-3">
                 <div class="bg-gradient-to-br from-blue-500 to-blue-700 text-white w-12 h-12 flex items-center justify-center rounded-xl text-2xl font-black shadow-md">ر</div>
                 <span class="font-black text-2xl text-gray-800">الريان</span>
             </a>
+            
+            <!-- قائمة التنقل للأقسام -->
+            <nav class="hidden md:flex gap-6 font-semibold">
+                <a href="#home" class="nav-link">الرئيسية</a>
+                <a href="#services" class="nav-link">الخدمات</a>
+                <a href="#how-it-works" class="nav-link">كيف نعمل</a>
+                <a href="#contact" class="nav-link">اتصل بنا</a>
+            </nav>
+
             <div class="flex gap-3">
                 <a href="https://wa.me/966538555718" target="_blank" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-xl font-semibold flex items-center gap-2 transition shadow-lg">
                     <i class="fab fa-whatsapp"></i><span class="hidden sm:inline">واتساب</span>
@@ -174,8 +191,8 @@
         </div>
     </header>
 
-    <!-- الهيرو (تأكيد على الكمبروسر) -->
-    <section class="hero-section pt-28 pb-12" style="background: linear-gradient(135deg, #F0F7FF 0%, #FFFFFF 100%);">
+    <!-- قسم الرئيسية (home) -->
+    <section id="home" class="hero-section pt-28 pb-12" style="background: linear-gradient(135deg, #F0F7FF 0%, #FFFFFF 100%);">
         <div class="container-custom">
             <div class="flex flex-col md:flex-row items-center">
                 <div class="md:w-1/2 reveal">
@@ -202,7 +219,7 @@
         </div>
     </section>
 
-    <!-- ===== الخدمات (4 خدمات) ===== -->
+    <!-- ===== الخدمات (4 خدمات) مع ID ===== -->
     <section id="services" class="py-16">
         <div class="container-custom">
             <div class="text-center reveal">
@@ -211,8 +228,8 @@
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
-                <!-- 1. تسليك المجاري بالكمبروسر -->
-                <div class="service-card reveal">
+                <!-- 1. تسليك المجاري بالكمبروسر (مع ID فريد لكل خدمة إذا أردت) -->
+                <div class="service-card reveal" id="service-drain">
                     <img src="https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=800&q=80" alt="تسليك مجاري بالكمبروسر" class="w-full h-48 object-cover">
                     <div class="p-6">
                         <h3 class="text-2xl font-bold mb-3">🚰 تسليك المجاري بالكمبروسر</h3>
@@ -227,8 +244,8 @@
                     </div>
                 </div>
 
-                <!-- 2. شفط البيارات بالكمبروسر (بدون وايت) -->
-                <div class="service-card reveal" style="transition-delay: 100ms;">
+                <!-- 2. شفط البيارات بالكمبروسر -->
+                <div class="service-card reveal" id="service-septic" style="transition-delay: 100ms;">
                     <img src="https://images.unsplash.com/photo-1575496917055-f23c822796eb?w=800&q=80" alt="شفط بيارات بالكمبروسر" class="w-full h-48 object-cover">
                     <div class="p-6">
                         <h3 class="text-2xl font-bold mb-3">🛢️ شفط البيارات بالكمبروسر</h3>
@@ -244,7 +261,7 @@
                 </div>
 
                 <!-- 3. تنظيف الخزانات بالكمبروسر -->
-                <div class="service-card reveal" style="transition-delay: 200ms;">
+                <div class="service-card reveal" id="service-tank" style="transition-delay: 200ms;">
                     <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=800&q=80" alt="تنظيف خزانات بالكمبروسر" class="w-full h-48 object-cover">
                     <div class="p-6">
                         <h3 class="text-2xl font-bold mb-3">💧 تنظيف الخزانات بالكمبروسر</h3>
@@ -259,8 +276,8 @@
                     </div>
                 </div>
 
-                <!-- 4. تركيب السباكة (خدمة جديدة) -->
-                <div class="service-card reveal" style="transition-delay: 300ms;">
+                <!-- 4. تركيب السباكة -->
+                <div class="service-card reveal" id="service-plumbing" style="transition-delay: 300ms;">
                     <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&q=80" alt="تركيب سباكة" class="w-full h-48 object-cover">
                     <div class="p-6">
                         <h3 class="text-2xl font-bold mb-3">🔧 تركيب السباكة</h3>
@@ -290,7 +307,7 @@
         </div>
     </section>
 
-    <!-- شارات الثقة (تأكيد على الكمبروسر) -->
+    <!-- شارات الثقة -->
     <section class="py-8">
         <div class="container-custom">
             <div class="flex flex-wrap justify-center gap-4">
@@ -302,8 +319,8 @@
         </div>
     </section>
 
-    <!-- خطوات العمل -->
-    <section class="py-16 bg-[#F9FAFB]">
+    <!-- خطوات العمل مع ID -->
+    <section id="how-it-works" class="py-16 bg-[#F9FAFB]">
         <div class="container-custom">
             <h2 class="section-title center text-4xl font-black text-center">كيف نعمل؟</h2>
             <div class="grid md:grid-cols-3 gap-8 mt-12">
@@ -314,8 +331,8 @@
         </div>
     </section>
 
-    <!-- CTA الختامي -->
-    <section class="bg-gray-900 py-16 text-center">
+    <!-- CTA الختامي مع ID -->
+    <section id="contact" class="bg-gray-900 py-16 text-center">
         <div class="container-custom">
             <h2 class="text-4xl font-extrabold text-white mb-4">📞 جاهز نخدمك؟</h2>
             <p class="text-gray-300 text-xl max-w-2xl mx-auto mb-8">اتصل بينا الحين وفريقنا يتوجه لك فوراً</p>
