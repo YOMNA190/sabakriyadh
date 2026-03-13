@@ -30,6 +30,24 @@
       gtag('js', new Date());
       gtag('config', 'AW-18007174852');
     </script>
+
+    <!-- Event snippet for انقر للاتصال conversion page -->
+    <script>
+    function gtag_report_conversion(url) {
+      var callback = function () {
+        if (typeof(url) != 'undefined') {
+          window.location = url;
+        }
+      };
+      gtag('event', 'conversion', {
+          'send_to': 'AW-18007174852/91V0CLiu1IccEMTdvopD',
+          'value': 1.0,
+          'currency': 'EGP',
+          'event_callback': callback
+      });
+      return false;
+    }
+    </script>
     
     <!-- Open Graph / فيسبوك -->
     <meta property="og:title" content="الريان - خدمات الصرف الصحي المتكاملة بالرياض">
@@ -330,7 +348,8 @@
                 <a href="https://wa.me/966538555718" target="_blank" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-xl flex items-center gap-2 transition shadow-md">
                     <i class="fab fa-whatsapp"></i><span class="hidden sm:inline">واتساب</span>
                 </a>
-                <button onclick="window.location.href='tel:+966538555718'" class="btn-primary text-sm md:text-base py-2 px-4">
+                <!-- زر اتصال في الهيدر يستخدم دالة التحويل -->
+                <button onclick="return gtag_report_conversion('tel:+966538555718')" class="btn-primary text-sm md:text-base py-2 px-4">
                     <i class="fas fa-phone"></i><span class="hidden sm:inline">اتصل الآن</span>
                 </button>
             </div>
@@ -350,7 +369,8 @@
                     </h1>
                     <p class="text-xl text-gray-600 mb-8">🚀 تسليك مجاري • شفط بيارات • تنظيف خزانات • كشف تسربات • تركيب سباكة | ضغط عالي بدون تكسير | ضمان ٣٠ يوم | خدمة 24 ساعة</p>
                     <div class="flex flex-wrap gap-4">
-                        <button onclick="window.location.href='tel:+966538555718'" class="btn-primary text-lg">
+                        <!-- زر طلب خدمة فورية -->
+                        <button onclick="return gtag_report_conversion('tel:+966538555718')" class="btn-primary text-lg">
                             <i class="fas fa-phone-volume"></i> طلب خدمة فورية
                         </button>
                         <a href="#services" class="btn-outline text-lg">شوف الخدمات</a>
@@ -430,7 +450,7 @@
         </div>
     </section>
 
-    <!-- الخدمات التفصيلية (8 خدمات) مع وصف محسّن (100-150 كلمة) وأزرار متعددة -->
+    <!-- الخدمات التفصيلية (8 خدمات) مع وصف محسّن وأزرار متعددة -->
     <section id="services" class="py-16">
         <div class="container-custom">
             <div class="text-center reveal">
@@ -451,7 +471,8 @@
                             <li class="flex items-center gap-2"><i class="fas fa-check-circle text-primary"></i> ضمان 30 يوم</li>
                         </ul>
                         <div class="flex flex-col sm:flex-row gap-2 mt-4">
-                            <button onclick="window.location.href='tel:+966538555718'" class="btn-primary flex-1 py-3 text-sm"><i class="fas fa-phone"></i> اتصال</button>
+                            <!-- زر اتصال مع تتبع -->
+                            <button onclick="return gtag_report_conversion('tel:+966538555718')" class="btn-primary flex-1 py-3 text-sm"><i class="fas fa-phone"></i> اتصال</button>
                             <a href="https://wa.me/966538555718" target="_blank" class="btn-whatsapp flex-1 py-3 text-sm"><i class="fab fa-whatsapp"></i> واتساب</a>
                         </div>
                     </div>
@@ -469,7 +490,7 @@
                             <li class="flex items-center gap-2"><i class="fas fa-check-circle text-primary"></i> لا حاجة لوايتات</li>
                         </ul>
                         <div class="flex flex-col sm:flex-row gap-2 mt-4">
-                            <button onclick="window.location.href='tel:+966538555718'" class="btn-primary flex-1 py-3 text-sm"><i class="fas fa-phone"></i> اتصال</button>
+                            <button onclick="return gtag_report_conversion('tel:+966538555718')" class="btn-primary flex-1 py-3 text-sm"><i class="fas fa-phone"></i> اتصال</button>
                             <a href="https://wa.me/966538555718" target="_blank" class="btn-whatsapp flex-1 py-3 text-sm"><i class="fab fa-whatsapp"></i> واتساب</a>
                         </div>
                     </div>
@@ -487,7 +508,7 @@
                             <li class="flex items-center gap-2"><i class="fas fa-check-circle text-primary"></i> خزانات أرضية وعلوية</li>
                         </ul>
                         <div class="flex flex-col sm:flex-row gap-2 mt-4">
-                            <button onclick="window.location.href='tel:+966538555718'" class="btn-primary flex-1 py-3 text-sm"><i class="fas fa-phone"></i> اتصال</button>
+                            <button onclick="return gtag_report_conversion('tel:+966538555718')" class="btn-primary flex-1 py-3 text-sm"><i class="fas fa-phone"></i> اتصال</button>
                             <a href="https://wa.me/966538555718" target="_blank" class="btn-whatsapp flex-1 py-3 text-sm"><i class="fab fa-whatsapp"></i> واتساب</a>
                         </div>
                     </div>
@@ -505,7 +526,7 @@
                             <li class="flex items-center gap-2"><i class="fas fa-check-circle text-primary"></i> ضمان على التركيب</li>
                         </ul>
                         <div class="flex flex-col sm:flex-row gap-2 mt-4">
-                            <button onclick="window.location.href='tel:+966538555718'" class="btn-primary flex-1 py-3 text-sm"><i class="fas fa-phone"></i> اتصال</button>
+                            <button onclick="return gtag_report_conversion('tel:+966538555718')" class="btn-primary flex-1 py-3 text-sm"><i class="fas fa-phone"></i> اتصال</button>
                             <a href="https://wa.me/966538555718" target="_blank" class="btn-whatsapp flex-1 py-3 text-sm"><i class="fab fa-whatsapp"></i> واتساب</a>
                         </div>
                     </div>
@@ -523,7 +544,7 @@
                             <li class="flex items-center gap-2"><i class="fas fa-check-circle text-primary"></i> إصلاح فوري</li>
                         </ul>
                         <div class="flex flex-col sm:flex-row gap-2 mt-4">
-                            <button onclick="window.location.href='tel:+966538555718'" class="btn-primary flex-1 py-3 text-sm"><i class="fas fa-phone"></i> اتصال</button>
+                            <button onclick="return gtag_report_conversion('tel:+966538555718')" class="btn-primary flex-1 py-3 text-sm"><i class="fas fa-phone"></i> اتصال</button>
                             <a href="https://wa.me/966538555718" target="_blank" class="btn-whatsapp flex-1 py-3 text-sm"><i class="fab fa-whatsapp"></i> واتساب</a>
                         </div>
                     </div>
@@ -541,7 +562,7 @@
                             <li class="flex items-center gap-2"><i class="fas fa-check-circle text-primary"></i> تنظيف كامل للمجاري</li>
                         </ul>
                         <div class="flex flex-col sm:flex-row gap-2 mt-4">
-                            <button onclick="window.location.href='tel:+966538555718'" class="btn-primary flex-1 py-3 text-sm"><i class="fas fa-phone"></i> اتصال</button>
+                            <button onclick="return gtag_report_conversion('tel:+966538555718')" class="btn-primary flex-1 py-3 text-sm"><i class="fas fa-phone"></i> اتصال</button>
                             <a href="https://wa.me/966538555718" target="_blank" class="btn-whatsapp flex-1 py-3 text-sm"><i class="fab fa-whatsapp"></i> واتساب</a>
                         </div>
                     </div>
@@ -559,7 +580,7 @@
                             <li class="flex items-center gap-2"><i class="fas fa-check-circle text-primary"></i> جميع أيام الأسبوع</li>
                         </ul>
                         <div class="flex flex-col sm:flex-row gap-2 mt-4">
-                            <button onclick="window.location.href='tel:+966538555718'" class="btn-primary flex-1 py-3 text-sm"><i class="fas fa-phone"></i> اتصال</button>
+                            <button onclick="return gtag_report_conversion('tel:+966538555718')" class="btn-primary flex-1 py-3 text-sm"><i class="fas fa-phone"></i> اتصال</button>
                             <a href="https://wa.me/966538555718" target="_blank" class="btn-whatsapp flex-1 py-3 text-sm"><i class="fab fa-whatsapp"></i> واتساب</a>
                         </div>
                     </div>
@@ -577,7 +598,7 @@
                             <li class="flex items-center gap-2"><i class="fas fa-check-circle text-primary"></i> عرض سعر بدون التزام</li>
                         </ul>
                         <div class="flex flex-col sm:flex-row gap-2 mt-4">
-                            <button onclick="window.location.href='tel:+966538555718'" class="btn-primary flex-1 py-3 text-sm"><i class="fas fa-phone"></i> اتصال</button>
+                            <button onclick="return gtag_report_conversion('tel:+966538555718')" class="btn-primary flex-1 py-3 text-sm"><i class="fas fa-phone"></i> اتصال</button>
                             <a href="https://wa.me/966538555718" target="_blank" class="btn-whatsapp flex-1 py-3 text-sm"><i class="fab fa-whatsapp"></i> واتساب</a>
                         </div>
                     </div>
@@ -738,7 +759,8 @@
                 <h2 class="text-3xl md:text-4xl font-black mb-4">📅 احجز الخدمة الآن</h2>
                 <p class="text-xl text-white/80 max-w-2xl mx-auto mb-6">اتصل بنا أو واتساب، وفريقنا يتوجه لك فوراً. معاينة مجانية وعرض سعر بدون التزام.</p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <button onclick="window.location.href='tel:+966538555718'" class="bg-white text-primary text-xl px-8 py-4 rounded-full font-bold shadow-xl hover:scale-105 transition flex items-center gap-3">
+                    <!-- زر اتصال مع تتبع -->
+                    <button onclick="return gtag_report_conversion('tel:+966538555718')" class="bg-white text-primary text-xl px-8 py-4 rounded-full font-bold shadow-xl hover:scale-105 transition flex items-center gap-3">
                         <i class="fas fa-phone"></i> 0538555718
                     </button>
                     <a href="https://wa.me/966538555718" target="_blank" class="bg-green-500 text-white text-xl px-8 py-4 rounded-full font-bold shadow-xl hover:scale-105 transition flex items-center gap-3">
@@ -749,12 +771,13 @@
         </div>
     </section>
 
-    <!-- CTA النهائي (احتفظت به مع تعديل الاسم) -->
+    <!-- CTA النهائي -->
     <section id="contact" class="py-20 bg-gradient-to-r from-primary to-primary-dark text-white text-center">
         <div class="container-custom">
             <h2 class="text-4xl md:text-5xl font-black mb-4">📞 جاهز نخدمك؟</h2>
             <p class="text-xl text-white/80 max-w-2xl mx-auto mb-8">اتصل بينا الحين وفريق الريان يتوجه لك فوراً</p>
-            <button onclick="window.location.href='tel:+966538555718'" class="bg-white text-primary text-2xl px-12 py-5 rounded-full font-bold shadow-xl hover:scale-105 transition flex items-center gap-3 mx-auto">
+            <!-- زر اتصال مع تتبع -->
+            <button onclick="return gtag_report_conversion('tel:+966538555718')" class="bg-white text-primary text-2xl px-12 py-5 rounded-full font-bold shadow-xl hover:scale-105 transition flex items-center gap-3 mx-auto">
                 <i class="fas fa-phone"></i> 0538555718
             </button>
             <p class="mt-4 text-white/70">متوفرين 24 ساعة، 7 أيام</p>
@@ -794,7 +817,8 @@
                 <div>
                     <h4 class="font-bold mb-4">اتصل بنا</h4>
                     <ul class="space-y-2 text-gray-400">
-                        <li><i class="fas fa-phone ml-2 text-primary"></i> 0538555718</li>
+                        <!-- رابط اتصال مع تتبع -->
+                        <li><a href="tel:+966538555718" onclick="return gtag_report_conversion('tel:+966538555718')" class="hover:text-white"><i class="fas fa-phone ml-2 text-primary"></i> 0538555718</a></li>
                         <li><i class="fab fa-whatsapp ml-2 text-green-500"></i> واتساب: 0538555718</li>
                         <li><i class="fas fa-map-marker-alt ml-2 text-primary"></i> الرياض</li>
                     </ul>
