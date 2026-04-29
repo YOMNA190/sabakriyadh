@@ -1,336 +1,560 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>محمود الهادي | Media Buyer بورتفليو عالمي</title>
-  <!-- Font Awesome 6 -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <!-- Google Font: Cairo -->
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Mahmoud Elhady – Media Buyer</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --green: #22c55e;
+    --green-dark: #16a34a;
+    --dark: #0a0a0a;
+    --card-bg: #fff;
+    --text: #111;
+    --muted: #555;
+    --border: #e5e7eb;
+    --section-bg: #f9fafb;
+  }
+  body { font-family: 'Inter', sans-serif; color: var(--text); background: #fff; }
 
-    body {
-      font-family: 'Cairo', sans-serif;
-      background: linear-gradient(135deg, #0a0f1e 0%, #0c1222 100%);
-      color: #eef5ff;
-      line-height: 1.5;
-      padding: 2rem 1rem;
-    }
+/* NAV */
+nav {
+position: sticky; top: 0; z-index: 100;
+background: #fff; border-bottom: 1px solid var(–border);
+padding: 0 40px; height: 64px;
+display: flex; align-items: center; justify-content: space-between;
+}
+.logo { display: flex; align-items: center; gap: 10px; font-family: ‘Syne’, sans-serif; font-weight: 800; font-size: 15px; }
+.logo-icon {
+width: 38px; height: 38px; background: var(–dark); color: #fff;
+border-radius: 6px; display: flex; align-items: center; justify-content: center;
+font-size: 13px; font-weight: 800; letter-spacing: -1px;
+}
+.nav-links { display: flex; gap: 32px; list-style: none; }
+.nav-links a { text-decoration: none; color: var(–text); font-size: 14px; font-weight: 500; transition: color .2s; }
+.nav-links a:hover { color: var(–green); }
+.btn-wa {
+background: var(–green); color: #fff; border: none; border-radius: 8px;
+padding: 10px 20px; font-size: 14px; font-weight: 600; cursor: pointer;
+display: flex; align-items: center; gap: 7px; text-decoration: none;
+transition: background .2s;
+}
+.btn-wa:hover { background: var(–green-dark); }
+.btn-wa svg { width: 16px; height: 16px; }
 
-    .container {
-      max-width: 1400px;
-      margin: 0 auto;
-    }
+/* HERO */
+.hero {
+background: linear-gradient(135deg, #0a0a0a 55%, #1a0505 100%);
+min-height: 420px; position: relative; overflow: hidden;
+display: flex; align-items: center; padding: 60px 80px 80px;
+}
+.hero-content { max-width: 520px; z-index: 2; position: relative; }
+.hero-badge {
+color: var(–green); font-size: 12px; font-weight: 700; letter-spacing: 2px;
+text-transform: uppercase; margin-bottom: 18px;
+}
+.hero h1 {
+font-family: ‘Syne’, sans-serif; font-size: 54px; font-weight: 800;
+color: #fff; line-height: 1.05; margin-bottom: 18px;
+}
+.hero h1 span { color: var(–green); }
+.hero p { color: #aaa; font-size: 15px; line-height: 1.7; margin-bottom: 32px; max-width: 380px; }
+.hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+.btn-primary {
+background: var(–green); color: #fff; padding: 13px 22px;
+border-radius: 8px; font-weight: 600; font-size: 14px;
+display: flex; align-items: center; gap: 8px; text-decoration: none;
+transition: background .2s;
+}
+.btn-primary:hover { background: var(–green-dark); }
+.btn-outline {
+background: transparent; color: #fff; padding: 13px 22px;
+border-radius: 8px; font-weight: 600; font-size: 14px;
+border: 1.5px solid rgba(255,255,255,0.3);
+text-decoration: none; transition: border-color .2s, color .2s;
+}
+.btn-outline:hover { border-color: var(–green); color: var(–green); }
 
-    /* Glassmorphism cards */
-    .card {
-      background: rgba(18, 25, 45, 0.65);
-      backdrop-filter: blur(12px);
-      border-radius: 2rem;
-      border: 1px solid rgba(0, 255, 255, 0.15);
-      padding: 1.5rem;
-      transition: all 0.3s ease;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-    }
+/* HERO PHOTO placeholder */
+.hero-img {
+position: absolute; right: 0; bottom: 0; height: 100%; width: 46%;
+background: linear-gradient(to top, rgba(10,10,10,0.8) 0%, transparent 40%),
+radial-gradient(ellipse at 60% 50%, rgba(139,0,0,0.35) 0%, transparent 70%);
+display: flex; align-items: flex-end; justify-content: flex-end;
+overflow: hidden;
+}
+.hero-img-face {
+width: 100%; height: 100%;
+background: url(‘data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500"><defs><radialGradient id="g" cx="50%25" cy="40%25" r="50%25"><stop offset="0%25" stop-color="%23b45309" stop-opacity="0.3"/><stop offset="100%25" stop-color="%230a0a0a" stop-opacity="0"/></radialGradient></defs><rect width="400" height="500" fill="url(%23g)"/><ellipse cx="200" cy="170" rx="85" ry="100" fill="%23c8843a" opacity="0.5"/></svg>’) center/cover no-repeat;
+}
 
-    .card:hover {
-      border-color: rgba(0, 255, 255, 0.5);
-      box-shadow: 0 12px 30px rgba(0, 200, 255, 0.1);
-      transform: translateY(-3px);
-    }
+/* STATS */
+.stats-bar {
+background: #fff; border-radius: 16px;
+margin: -38px 60px 0; position: relative; z-index: 5;
+box-shadow: 0 8px 40px rgba(0,0,0,0.10);
+display: flex; divide: 1px solid var(–border);
+}
+.stat-item {
+flex: 1; padding: 28px 24px; display: flex; align-items: center; gap: 16px;
+border-right: 1px solid var(–border);
+}
+.stat-item:last-child { border-right: none; }
+.stat-icon {
+width: 48px; height: 48px; border-radius: 50%;
+background: rgba(34,197,94,0.12); display: flex; align-items: center; justify-content: center;
+flex-shrink: 0;
+}
+.stat-icon svg { width: 22px; height: 22px; color: var(–green); }
+.stat-num { font-family: ‘Syne’, sans-serif; font-size: 28px; font-weight: 800; color: var(–text); }
+.stat-unit { font-size: 13px; font-weight: 700; color: var(–green); margin-left: 4px; }
+.stat-label { font-size: 12px; color: var(–muted); margin-top: 2px; }
 
-    /* Header / Hero */
-    .hero {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-      align-items: center;
-      margin-bottom: 2.5rem;
-    }
+/* SECTIONS */
+section { padding: 80px 80px; }
+.section-tag { color: var(–green); font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; }
+.section-title { font-family: ‘Syne’, sans-serif; font-size: 32px; font-weight: 800; color: var(–text); margin-bottom: 40px; }
+.section-title-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 40px; }
+.section-title-row .section-title { margin-bottom: 0; }
+.view-more { color: var(–green); font-size: 14px; font-weight: 600; text-decoration: none; display: flex; align-items: center; gap: 6px; }
+.view-more:hover { text-decoration: underline; }
 
-    .profile-pic {
-      flex-shrink: 0;
-      width: 130px;
-      height: 130px;
-      border-radius: 50%;
-      background: #1e2a47;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      border: 3px solid #0ff;
-      box-shadow: 0 0 20px rgba(0,255,255,0.3);
-    }
+/* CASE STUDIES */
+.cases { background: #fff; padding-top: 70px; }
+.cases-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.case-card {
+border: 1px solid var(–border); border-radius: 14px;
+padding: 22px 20px; background: #fff;
+transition: box-shadow .2s, transform .2s;
+}
+.case-card:hover { box-shadow: 0 8px 30px rgba(0,0,0,0.09); transform: translateY(-3px); }
+.case-header { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+.case-icon {
+width: 42px; height: 42px; border-radius: 50%;
+background: var(–green); display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.case-icon svg { width: 18px; height: 18px; fill: #fff; }
+.case-name { font-family: ‘Syne’, sans-serif; font-weight: 700; font-size: 14px; line-height: 1.3; }
+.case-label { font-size: 11px; font-weight: 700; color: var(–green); letter-spacing: .5px; margin-bottom: 5px; }
+.case-desc { font-size: 12.5px; color: var(–muted); line-height: 1.5; margin-bottom: 12px; }
+.case-results { display: flex; gap: 16px; margin-top: 14px; padding-top: 14px; border-top: 1px solid var(–border); }
+.result-num { font-family: ‘Syne’, sans-serif; font-size: 22px; font-weight: 800; }
+.result-unit { font-size: 11px; font-weight: 700; color: var(–green); }
+.result-label { font-size: 11px; color: var(–muted); margin-top: 2px; }
 
-    .profile-pic img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+/* SERVICES */
+.services { background: var(–section-bg); }
+.services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.service-card {
+background: #fff; border: 1px solid var(–border); border-radius: 14px;
+padding: 28px 24px; display: flex; gap: 16px;
+transition: box-shadow .2s;
+}
+.service-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.08); }
+.service-icon {
+width: 52px; height: 52px; border-radius: 50%; background: rgba(34,197,94,0.12);
+display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.service-icon svg { width: 24px; height: 24px; color: var(–green); }
+.service-title { font-family: ‘Syne’, sans-serif; font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+.service-desc { font-size: 13px; color: var(–muted); line-height: 1.6; }
 
-    /* Placeholder style if no image */
-    .profile-pic .placeholder-icon {
-      font-size: 4rem;
-      color: #0ff;
-    }
+/* ABOUT */
+.about { background: #fff; }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+.about-text h2 { font-family: ‘Syne’, sans-serif; font-size: 28px; font-weight: 800; margin-bottom: 16px; }
+.about-text p { font-size: 14px; color: var(–muted); line-height: 1.75; margin-bottom: 20px; }
+.about-meta { display: flex; gap: 24px; }
+.about-meta-item { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(–muted); }
+.about-meta-item svg { width: 16px; height: 16px; color: var(–green); }
+.skills-section h3 { font-family: ‘Syne’, sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(–muted); margin-bottom: 16px; }
+.skills-tags { display: flex; flex-wrap: wrap; gap: 10px; }
+.skill-tag {
+border: 1px solid var(–border); border-radius: 8px;
+padding: 7px 14px; font-size: 13px; font-weight: 500; color: var(–text);
+transition: border-color .2s, color .2s;
+}
+.skill-tag:hover { border-color: var(–green); color: var(–green); }
 
-    .hero-info h1 {
-      font-size: 2.5rem;
-      font-weight: 800;
-      background: linear-gradient(135deg, #fff, #0ff);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      margin-bottom: 0.5rem;
-    }
+/* TESTIMONIALS */
+.testimonials { background: var(–section-bg); }
+.testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.testi-card {
+background: #fff; border: 1px solid var(–border); border-radius: 14px; padding: 26px 22px;
+transition: box-shadow .2s;
+}
+.testi-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.08); }
+.quote-icon { font-size: 36px; color: var(–green); line-height: 1; margin-bottom: 14px; font-family: Georgia, serif; }
+.testi-text { font-size: 13.5px; color: var(–muted); line-height: 1.7; margin-bottom: 20px; }
+.testi-author { font-weight: 700; font-size: 14px; }
+.testi-role { font-size: 12px; color: var(–muted); margin-top: 3px; }
 
-    .hero-info .title {
-      font-size: 1.2rem;
-      color: #9bb5ff;
-      margin-bottom: 1rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
+/* CTA */
+.cta {
+background: var(–dark); padding: 70px 80px;
+display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;
+}
+.cta-left .cta-tag { color: var(–green); font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 14px; }
+.cta-left h2 { font-family: ‘Syne’, sans-serif; font-size: 36px; font-weight: 800; color: #fff; margin-bottom: 12px; line-height: 1.2; }
+.cta-left p { color: #888; font-size: 14px; line-height: 1.65; margin-bottom: 28px; }
+.cta-right { display: flex; flex-direction: column; gap: 16px; }
+.contact-item { display: flex; align-items: center; gap: 14px; color: #ccc; font-size: 14px; }
+.contact-icon { width: 18px; height: 18px; color: var(–green); flex-shrink: 0; }
 
-    .contact-info {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.2rem;
-      font-size: 0.9rem;
-    }
+/* FOOTER */
+footer {
+background: var(–dark); border-top: 1px solid #1f1f1f;
+padding: 18px 80px; text-align: center;
+color: #555; font-size: 12px;
+}
 
-    .contact-info a, .contact-info span {
-      color: #cbd5ff;
-      text-decoration: none;
-      transition: 0.2s;
-    }
+@media (max-width: 900px) {
+nav { padding: 0 20px; }
+.nav-links { display: none; }
+.hero { padding: 40px 24px 100px; }
+.hero h1 { font-size: 34px; }
+.hero-img { display: none; }
+.stats-bar { margin: -30px 20px 0; flex-wrap: wrap; }
+.stat-item { min-width: 50%; border-bottom: 1px solid var(–border); }
+section { padding: 50px 24px; }
+.cases-grid, .services-grid, .testimonials-grid { grid-template-columns: 1fr; }
+.about-grid { grid-template-columns: 1fr; }
+.cta { grid-template-columns: 1fr; padding: 50px 24px; }
+footer { padding: 18px 24px; }
+.section-title-row { flex-direction: column; align-items: flex-start; gap: 10px; }
+}
+</style>
 
-    .contact-info a:hover {
-      color: #0ff;
-    }
-
-    /* stats row */
-    .stats-row {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1.2rem;
-      margin-bottom: 2.5rem;
-    }
-
-    .stat-card {
-      background: rgba(0, 0, 0, 0.4);
-      border-radius: 1.5rem;
-      padding: 1.2rem;
-      text-align: center;
-      border-right: 3px solid #0ff;
-    }
-
-    .stat-number {
-      font-size: 2rem;
-      font-weight: 800;
-      color: #0ff;
-    }
-
-    /* table wrapper */
-    .table-wrapper {
-      overflow-x: auto;
-      margin: 1.5rem 0;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.85rem;
-    }
-
-    th, td {
-      padding: 12px 8px;
-      text-align: center;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-    }
-
-    th {
-      background: rgba(0, 200, 255, 0.1);
-      color: #0ff;
-      font-weight: 700;
-    }
-
-    .badge-active {
-      background: #00a86b;
-      padding: 4px 10px;
-      border-radius: 30px;
-      font-size: 0.7rem;
-      font-weight: bold;
-    }
-
-    .badge-stopped {
-      background: #ff4d4d;
-      padding: 4px 10px;
-      border-radius: 30px;
-    }
-
-    .highlight {
-      color: #ffd966;
-      font-weight: bold;
-    }
-
-    .comparison-box {
-      background: linear-gradient(145deg, #0a1022, #050a15);
-      border-radius: 1.5rem;
-      padding: 1.5rem;
-      margin-top: 1rem;
-      border: 1px solid #0ff3;
-    }
-
-    .metric {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      margin-bottom: 0.8rem;
-    }
-
-    .value {
-      font-weight: 800;
-      color: #0ff;
-    }
-
-    hr {
-      border-color: #0ff2;
-      margin: 1rem 0;
-    }
-
-    footer {
-      text-align: center;
-      margin-top: 2.5rem;
-      font-size: 0.8rem;
-      color: #7d8bb8;
-    }
-
-    @media (max-width: 700px) {
-      .hero {
-        justify-content: center;
-        text-align: center;
-      }
-      .hero-info {
-        text-align: center;
-      }
-      .contact-info {
-        justify-content: center;
-      }
-    }
-  </style>
 </head>
 <body>
-<div class="container">
-  <!-- Hero + Profile Image -->
-  <div class="hero">
-    <div class="profile-pic">
-      <!-- 👇 ضع رابط صورتك هنا مباشرة (استبدل الرابط اللي تحت) 👇 -->
-      <img src="https://via.placeholder.com/130?text=Your+Photo" alt="محمود الهادي" id="profileImage">
-      <!-- للتعديل: اكتب رابط صورتك في السطر ده بدل الرابط الحالي -->
-    </div>
-    <div class="hero-info">
-      <h1>محمود الهادي</h1>
-      <div class="title">
-        <span><i class="fas fa-chart-line"></i> Media Buyer</span>
-        <span><i class="fas fa-globe"></i> عالمي · مصر</span>
-      </div>
-      <div class="contact-info">
-        <span><i class="fas fa-phone-alt"></i> 01009770363</span>
-        <a href="mailto:mahmoudalhady2020@gmail.com"><i class="fas fa-envelope"></i> mahmoudalhady2020@gmail.com</a>
-        <span><i class="fas fa-map-marker-alt"></i> المنصورة، مصر</span>
-      </div>
+
+<!-- NAV -->
+
+<nav>
+  <div class="logo">
+    <div class="logo-icon">MH</div>
+    <div>
+      <div style="font-size:13px;line-height:1.2">MAHMOUD ELHADY</div>
+      <div style="font-size:10px;font-weight:500;color:var(--muted);letter-spacing:1px">MEDIA BUYER</div>
     </div>
   </div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#cases">Case Studies</a></li>
+    <li><a href="#results">Results</a></li>
+    <li><a href="#testimonials">Testimonials</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="https://wa.me/201009770363" class="btn-wa" target="_blank">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.05.5C5.495.5.065 5.928.065 12.484c0 2.122.547 4.114 1.503 5.849L.001 23.5l5.296-1.543a11.963 11.963 0 005.753 1.47h.005c6.554 0 11.984-5.428 11.984-11.984C23.039 5.887 18.603.5 12.05.5zm-.001 21.949a9.934 9.934 0 01-5.066-1.382l-.363-.216-3.145.916.894-3.073-.237-.376A9.907 9.907 0 012.065 12.48C2.065 6.988 6.557 2.5 12.05 2.5c5.49 0 9.983 4.488 9.983 9.98 0 5.494-4.494 9.969-9.984 9.969z"/></svg>
+    Message Me
+  </a>
+</nav>
 
-  <!-- بطاقات الإحصائيات السريعة -->
-  <div class="stats-row">
-    <div class="stat-card"><div class="stat-number">9,312 ج.م</div><div>إجمالي الإنفاق</div></div>
-    <div class="stat-card"><div class="stat-number">5,886</div><div>إجمالي النتائج</div></div>
-    <div class="stat-card"><div class="stat-number">1.47 ج.م</div><div>أفضل تكلفة محادثة</div></div>
-    <div class="stat-card"><div class="stat-number">540</div><div>أعلى محادثات (حملة)</div></div>
-  </div>
+<!-- HERO -->
 
-  <!-- جدول الحملات كامل -->
-  <div class="card">
-    <h2 style="margin-bottom: 1rem;"><i class="fas fa-ad"></i> الحملات الإعلانية</h2>
-    <div class="table-wrapper">
-      <table>
-        <thead>
-          <tr><th>#</th><th>الحملة</th><th>الإنفاق (ج.م)</th><th>النتائج</th><th>تكلفة النتيجة</th><th>الحالة</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>1</td><td>عرض العيد رسايل – sun gym</td><td>847.05</td><td>89 محادثة</td><td>9.52</td><td><span class="badge-stopped">متوقف</span></td></tr>
-          <tr><td>2</td><td>elhamady cam massage (1)</td><td>8.83</td><td>6 محادثات</td><td class="highlight">1.47</td><td><span class="badge-active">نشطة</span></td></tr>
-          <tr><td>3</td><td>Agial views portsaid</td><td>480.78</td><td>181 تفاعل</td><td>2.66</td><td><span class="badge-stopped">متوقف</span></td></tr>
-          <tr><td>4</td><td>elhamady cam massage (2)</td><td>458.07</td><td>102 محادثة</td><td>4.49</td><td><span class="badge-active">نشطة</span></td></tr>
-          <tr><td>5</td><td>أسس شركتك الخاصة</td><td>260.00</td><td>20 محادثة</td><td>13.00</td><td><span class="badge-stopped">متوقف</span></td></tr>
-          <tr><td>6</td><td>campaign massage</td><td>572.96</td><td>40 محادثة</td><td>14.32</td><td><span class="badge-stopped">متوقف</span></td></tr>
-          <tr><td>7</td><td>حملة (252.98)</td><td>252.98</td><td>32 محادثة</td><td>7.91</td><td><span class="badge-stopped">متوقف</span></td></tr>
-          <tr><td>8</td><td>Leads – Butcher – Oct & Zayed</td><td>775.28</td><td>76 محادثة</td><td>10.20</td><td><span class="badge-stopped">متوقف</span></td></tr>
-          <tr><td>9</td><td>تفاعل الفيديو – رمضان</td><td>370.25</td><td>4,206 تفاعل</td><td>0.088</td><td><span class="badge-stopped">متوقف</span></td></tr>
-          <tr><td>10</td><td>حملة جديدة بهدف الزيارات</td><td>1,874.85</td><td>263 محادثة</td><td>7.13</td><td><span class="badge-stopped">متوقف</span></td></tr>
-          <tr><td>11</td><td>elsafa massege campaign</td><td>530.03</td><td>106 محادثة</td><td>5.00</td><td><span class="badge-stopped">متوقف</span></td></tr>
-          <tr><td>12</td><td>pearl M Cam</td><td>156.96</td><td>21 محادثة</td><td>7.47</td><td><span class="badge-stopped">متوقف</span></td></tr>
-          <tr><td>13</td><td>حملة جديدة – نسخة 011</td><td>3,130.92</td><td>540 محادثة</td><td>5.80</td><td><span class="badge-stopped">متوقف</span></td></tr>
-          <tr><td>14</td><td>حملة جديدة – نسخة ماسنج</td><td>126.42</td><td>14 محادثة</td><td>9.03</td><td><span class="badge-stopped">متوقف</span></td></tr>
-          <tr><td>15</td><td>كوزماتكس</td><td>210.93</td><td>16 محادثة</td><td>13.18</td><td><span class="badge-active">نشطة</span></td></tr>
-          <tr><td>16</td><td>كامبين جديد بهدف الرسايل</td><td>920.97</td><td>174 محادثة</td><td>5.29</td><td><span class="badge-stopped">متوقف</span></td></tr>
-        </tbody>
-      </table>
+<div class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">Media Buyer</div>
+    <h1>I Turn Ad Spend<br>Into <span>Real Results.</span></h1>
+    <p>Data-driven Media Buyer specializing in performance campaigns that generate leads, sales, and profit.</p>
+    <div class="hero-btns">
+      <a href="https://wa.me/201009770363" class="btn-primary" target="_blank">
+        <svg viewBox="0 0 24 24" fill="currentColor" style="width:16px;height:16px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.05.5C5.495.5.065 5.928.065 12.484c0 2.122.547 4.114 1.503 5.849L.001 23.5l5.296-1.543a11.963 11.963 0 005.753 1.47h.005c6.554 0 11.984-5.428 11.984-11.984C23.039 5.887 18.603.5 12.05.5zm-.001 21.949a9.934 9.934 0 01-5.066-1.382l-.363-.216-3.145.916.894-3.073-.237-.376A9.907 9.907 0 012.065 12.48C2.065 6.988 6.557 2.5 12.05 2.5c5.49 0 9.983 4.488 9.983 9.98 0 5.494-4.494 9.969-9.984 9.969z"/></svg>
+        Message Me on WhatsApp
+      </a>
+      <a href="#results" class="btn-outline">View My Results</a>
     </div>
   </div>
-
-  <!-- الملخص الإجمالي والمقارنة العالمية -->
-  <div class="comparison-box">
-    <h3><i class="fas fa-chart-simple"></i> الملخص الإجمالي والميزة التنافسية</h3>
-    <div class="metric"><span>💰 إجمالي الإنفاق:</span><span class="value">9,312 ج.م</span></div>
-    <div class="metric"><span>🎯 إجمالي النتائج:</span><span class="value">5,886</span></div>
-    <div class="metric"><span>⚡ أفضل تكلفة محادثة:</span><span class="value">1.47 ج.م</span></div>
-    <div class="metric"><span>🏆 أعلى عدد محادثات:</span><span class="value">540 (حملة نسخة 011)</span></div>
-    <hr>
-    <div class="metric"><span>📉 تكلفة المحادثة عندي:</span><span class="value">2.17 ج.م (متوسط أفضل الحملات)</span></div>
-    <div class="metric"><span>🌍 متوسط السوق (النظراء):</span><span class="value">5.55 ج.م</span></div>
-    <div class="metric" style="font-size:1.2rem; margin-top:0.5rem;"><span>🔥 أقل من النظراء بنسبة :</span><span class="value" style="color:#ffaa44;">61%</span></div>
-    <p style="margin-top: 0.8rem; font-size:0.85rem;"><i class="fas fa-tachometer-alt"></i> كفاءة إعلانية عالية – أثبت جودة الـ Media Buying بأرقام حقيقية.</p>
-  </div>
-
-  <!-- المهارات والخبرة -->
-  <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px,1fr)); gap: 1.5rem; margin: 2rem 0;">
-    <div class="card">
-      <h3><i class="fas fa-code"></i> المهارات</h3>
-      <p>Facebook, Instagram, TikTok Ads, ROAS/CPC/CTR, Photoshop, CapCut, Python, HTML/CSS</p>
-    </div>
-    <div class="card">
-      <h3><i class="fas fa-briefcase"></i> الخبرات</h3>
-      <p>Paid Ads & Dropshipping (السعودية 2020–الآن) – بناء مواقع و Landing Pages</p>
-    </div>
-    <div class="card">
-      <h3><i class="fas fa-graduation-cap"></i> التعليم والشهادات</h3>
-      <p>بكالوريوس جامعة القاهرة 2018–2022 | كورس Media Buying 2025 مع Bassem Magdy و Abdelrahman Alaa</p>
-    </div>
-  </div>
-
-  <footer>
-    <i class="fas fa-chart-line"></i> محمود الهادي – Media Buyer | جميع الحملات حقيقية وموثقة | تحديث 2026
-  </footer>
+  <div class="hero-img"><div class="hero-img-face"></div></div>
 </div>
 
-<script>
-  // Script صغير لتسهيل تغيير الصورة: لو عايز تغير الصورة من هنا فقط، غير المتغير التالي
-  // 👇 ضع رابط صورتك المباشر بدل placeholder
-  const myImageUrl = "https://via.placeholder.com/130?text=Your+Photo"; // 👈 غير هذا الرابط لرابط صورتك
-  const imgElement = document.getElementById("profileImage");
-  if (imgElement && myImageUrl) {
-    imgElement.src = myImageUrl;
-  }
-</script>
+<!-- STATS BAR -->
+
+<div class="stats-bar" id="results">
+  <div class="stat-item">
+    <div class="stat-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+    </div>
+    <div>
+      <div><span class="stat-num">9,312</span><span class="stat-unit">EGP</span></div>
+      <div class="stat-label">Total Ad Spend</div>
+    </div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+    </div>
+    <div>
+      <div><span class="stat-num">5,886</span></div>
+      <div class="stat-label">Total Results</div>
+    </div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+    </div>
+    <div>
+      <div><span class="stat-num">1.47</span><span class="stat-unit">EGP</span></div>
+      <div class="stat-label">Best Cost Per Result</div>
+    </div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+    </div>
+    <div>
+      <div><span class="stat-num">540</span><span class="stat-unit" style="font-size:11px;margin-left:3px">Conversations</span></div>
+      <div class="stat-label">Top Campaign</div>
+    </div>
+  </div>
+</div>
+
+<!-- CASE STUDIES -->
+
+<section class="cases" id="cases" style="padding-top:70px;">
+  <div class="section-title-row">
+    <div>
+      <div class="section-tag">Case Studies</div>
+      <div class="section-title" style="margin-bottom:0">Real Campaigns. Real Results.</div>
+    </div>
+    <a href="#" class="view-more">View More Results →</a>
+  </div>
+  <div class="cases-grid">
+    <!-- Card 1 -->
+    <div class="case-card">
+      <div class="case-header">
+        <div class="case-icon">
+          <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <div class="case-name">Elhamady Cam Massage (1)</div>
+      </div>
+      <div class="case-label">The Challenge</div>
+      <div class="case-desc">Generate conversations at the lowest cost possible.</div>
+      <div class="case-label">Our Strategy</div>
+      <div class="case-desc">Targeted audience + compelling creatives + placement optimization.</div>
+      <div style="font-size:12px;font-weight:600;margin-top:6px;">Results</div>
+      <div class="case-results">
+        <div>
+          <div class="result-num">6</div>
+          <div class="result-label">Conversations</div>
+        </div>
+        <div>
+          <div><span class="result-num">1.47</span><span class="result-unit"> EGP</span></div>
+          <div class="result-label">Cost Per Result</div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 2 -->
+    <div class="case-card">
+      <div class="case-header">
+        <div class="case-icon">
+          <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <div class="case-name">Campaign 011</div>
+      </div>
+      <div class="case-label">The Challenge</div>
+      <div class="case-desc">Scale conversations while maintaining low cost.</div>
+      <div class="case-label">Our Strategy</div>
+      <div class="case-desc">Rebuilt audience + creative testing + cost control.</div>
+      <div style="font-size:12px;font-weight:600;margin-top:6px;">Results</div>
+      <div class="case-results">
+        <div>
+          <div class="result-num">540</div>
+          <div class="result-label">Conversations</div>
+        </div>
+        <div>
+          <div><span class="result-num">5.80</span><span class="result-unit"> EGP</span></div>
+          <div class="result-label">Cost Per Result</div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 3 -->
+    <div class="case-card">
+      <div class="case-header">
+        <div class="case-icon" style="background:#16a34a;">
+          <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        </div>
+        <div class="case-name">Video Engagement Ramadan</div>
+      </div>
+      <div class="case-label">The Challenge</div>
+      <div class="case-desc">Get massive engagement at the lowest possible cost.</div>
+      <div class="case-label">Our Strategy</div>
+      <div class="case-desc">Content hook + broad targeting + video optimization.</div>
+      <div style="font-size:12px;font-weight:600;margin-top:6px;">Results</div>
+      <div class="case-results">
+        <div>
+          <div class="result-num">4,206</div>
+          <div class="result-label">Engagements</div>
+        </div>
+        <div>
+          <div><span class="result-num">0.088</span><span class="result-unit"> EGP</span></div>
+          <div class="result-label">Cost Per Result</div>
+        </div>
+      </div>
+    </div>
+    <!-- Card 4 -->
+    <div class="case-card">
+      <div class="case-header">
+        <div class="case-icon">
+          <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <div class="case-name">Agial Views Portsaid</div>
+      </div>
+      <div class="case-label">The Challenge</div>
+      <div class="case-desc">Increase engagement & brand awareness.</div>
+      <div class="case-label">Our Strategy</div>
+      <div class="case-desc">Interest targeting + creative optimization.</div>
+      <div style="font-size:12px;font-weight:600;margin-top:6px;">Results</div>
+      <div class="case-results">
+        <div>
+          <div class="result-num">181</div>
+          <div class="result-label">Engagements</div>
+        </div>
+        <div>
+          <div><span class="result-num">2.66</span><span class="result-unit"> EGP</span></div>
+          <div class="result-label">Cost Per Result</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+
+<section class="services" id="services">
+  <div class="section-tag">Services</div>
+  <div class="section-title">What I Can Help You Achieve</div>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      </div>
+      <div>
+        <div class="service-title">Lead Generation Campaigns</div>
+        <div class="service-desc">High-quality leads at the lowest cost through advanced targeting and conversion strategies.</div>
+      </div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+      </div>
+      <div>
+        <div class="service-title">E-commerce Scaling</div>
+        <div class="service-desc">Scale your online store profitably with data-backed campaigns and testing frameworks.</div>
+      </div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+      </div>
+      <div>
+        <div class="service-title">Creative Testing & Optimization</div>
+        <div class="service-desc">Test, analyze, and optimize creatives that increase performance and reduce costs.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+
+<section class="about" id="about">
+  <div class="about-grid">
+    <div class="about-text">
+      <div class="section-tag">About Me</div>
+      <h2>Hi, I'm Mahmoud Elhady</h2>
+      <p>I'm a Media Buyer with experience in running profitable ad campaigns across multiple industries in Egypt & Saudi Arabia. I focus on data, strategies, and creatives that drive real business growth — not just clicks.</p>
+      <div class="about-meta">
+        <div class="about-meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Based in Mansoura, Egypt
+        </div>
+        <div class="about-meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          Available for projects worldwide
+        </div>
+      </div>
+    </div>
+    <div class="skills-section">
+      <h3>Skills &amp; Platforms</h3>
+      <div class="skills-tags">
+        <span class="skill-tag">Facebook Ads</span>
+        <span class="skill-tag">Instagram Ads</span>
+        <span class="skill-tag">TikTok Ads</span>
+        <span class="skill-tag">Analytics</span>
+        <span class="skill-tag">CRO</span>
+        <span class="skill-tag">Landing Pages</span>
+        <span class="skill-tag">Photoshop</span>
+        <span class="skill-tag">CapCut</span>
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">HTML / CSS</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+
+<section class="testimonials" id="testimonials">
+  <div class="section-tag">Testimonials</div>
+  <div class="section-title">What Clients Say</div>
+  <div class="testimonials-grid">
+    <div class="testi-card">
+      <div class="quote-icon">"</div>
+      <div class="testi-text">Mahmoud helped us reduce our cost per lead by more than 60% and scaled our business consistently.</div>
+      <div class="testi-author">Omar A.</div>
+      <div class="testi-role">Business Owner</div>
+    </div>
+    <div class="testi-card">
+      <div class="quote-icon">"</div>
+      <div class="testi-text">Very professional, data-driven, and always focused on results. Highly recommended!</div>
+      <div class="testi-author">Sara M.</div>
+      <div class="testi-role">E-commerce Store Owner</div>
+    </div>
+    <div class="testi-card">
+      <div class="quote-icon">"</div>
+      <div class="testi-text">Best media buyer I've worked with. Great communication and amazing results.</div>
+      <div class="testi-author">Ahmed R.</div>
+      <div class="testi-role">Entrepreneur</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA / CONTACT -->
+
+<div class="cta" id="contact">
+  <div class="cta-left">
+    <div class="cta-tag">Let's Work Together</div>
+    <h2>Ready to Scale Your Business?</h2>
+    <p>Let's create high-performing campaigns that deliver real results.</p>
+    <a href="https://wa.me/201009770363" class="btn-wa" target="_blank" style="width:fit-content;">
+      <svg viewBox="0 0 24 24" fill="currentColor" style="width:16px;height:16px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.05.5C5.495.5.065 5.928.065 12.484c0 2.122.547 4.114 1.503 5.849L.001 23.5l5.296-1.543a11.963 11.963 0 005.753 1.47h.005c6.554 0 11.984-5.428 11.984-11.984C23.039 5.887 18.603.5 12.05.5zm-.001 21.949a9.934 9.934 0 01-5.066-1.382l-.363-.216-3.145.916.894-3.073-.237-.376A9.907 9.907 0 012.065 12.48C2.065 6.988 6.557 2.5 12.05 2.5c5.49 0 9.983 4.488 9.983 9.98 0 5.494-4.494 9.969-9.984 9.969z"/></svg>
+      Message Me on WhatsApp
+    </a>
+  </div>
+  <div class="cta-right">
+    <div class="contact-item">
+      <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16z"/></svg>
+      01009770363
+    </div>
+    <div class="contact-item">
+      <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      mahmoudalhady2020@gmail.com
+    </div>
+    <div class="contact-item">
+      <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      Mansoura, Egypt
+    </div>
+  </div>
+</div>
+
+<footer>
+  © 2025 Mahmoud Elhady. All Rights Reserved.
+</footer>
+
 </body>
 </html>
