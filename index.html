@@ -1,560 +1,1256 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Mahmoud Elhady – Media Buyer</title>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root {
-    --green: #22c55e;
-    --green-dark: #16a34a;
-    --dark: #0a0a0a;
-    --card-bg: #fff;
-    --text: #111;
-    --muted: #555;
-    --border: #e5e7eb;
-    --section-bg: #f9fafb;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mahmoud | Elite Performance Media Buyer</title>
+<meta name="description" content="Results-driven Media Buyer specializing in Facebook, Instagram & TikTok Ads. Turn ad spend into real business growth.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700;800;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        'bg': '#0B0B0B',
+        'surface': '#141414',
+        'card': '#1A1A1A',
+        'border': '#242424',
+        'wa': '#25D366',
+        'wa-dark': '#1DAF57',
+        'accent-red': '#FF2D2D',
+      },
+      fontFamily: {
+        'display': ['Bebas Neue', 'sans-serif'],
+        'heading': ['Montserrat', 'sans-serif'],
+        'body': ['DM Sans', 'sans-serif'],
+      }
+    }
   }
-  body { font-family: 'Inter', sans-serif; color: var(--text); background: #fff; }
+}
+</script>
+<style>
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { background: #0B0B0B; color: #fff; font-family: 'DM Sans', sans-serif; overflow-x: hidden; }
 
-/* NAV */
-nav {
-position: sticky; top: 0; z-index: 100;
-background: #fff; border-bottom: 1px solid var(–border);
-padding: 0 40px; height: 64px;
-display: flex; align-items: center; justify-content: space-between;
-}
-.logo { display: flex; align-items: center; gap: 10px; font-family: ‘Syne’, sans-serif; font-weight: 800; font-size: 15px; }
-.logo-icon {
-width: 38px; height: 38px; background: var(–dark); color: #fff;
-border-radius: 6px; display: flex; align-items: center; justify-content: center;
-font-size: 13px; font-weight: 800; letter-spacing: -1px;
-}
-.nav-links { display: flex; gap: 32px; list-style: none; }
-.nav-links a { text-decoration: none; color: var(–text); font-size: 14px; font-weight: 500; transition: color .2s; }
-.nav-links a:hover { color: var(–green); }
-.btn-wa {
-background: var(–green); color: #fff; border: none; border-radius: 8px;
-padding: 10px 20px; font-size: 14px; font-weight: 600; cursor: pointer;
-display: flex; align-items: center; gap: 7px; text-decoration: none;
-transition: background .2s;
-}
-.btn-wa:hover { background: var(–green-dark); }
-.btn-wa svg { width: 16px; height: 16px; }
+  /* Noise texture overlay */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0.4;
+  }
 
-/* HERO */
-.hero {
-background: linear-gradient(135deg, #0a0a0a 55%, #1a0505 100%);
-min-height: 420px; position: relative; overflow: hidden;
-display: flex; align-items: center; padding: 60px 80px 80px;
-}
-.hero-content { max-width: 520px; z-index: 2; position: relative; }
-.hero-badge {
-color: var(–green); font-size: 12px; font-weight: 700; letter-spacing: 2px;
-text-transform: uppercase; margin-bottom: 18px;
-}
-.hero h1 {
-font-family: ‘Syne’, sans-serif; font-size: 54px; font-weight: 800;
-color: #fff; line-height: 1.05; margin-bottom: 18px;
-}
-.hero h1 span { color: var(–green); }
-.hero p { color: #aaa; font-size: 15px; line-height: 1.7; margin-bottom: 32px; max-width: 380px; }
-.hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
-.btn-primary {
-background: var(–green); color: #fff; padding: 13px 22px;
-border-radius: 8px; font-weight: 600; font-size: 14px;
-display: flex; align-items: center; gap: 8px; text-decoration: none;
-transition: background .2s;
-}
-.btn-primary:hover { background: var(–green-dark); }
-.btn-outline {
-background: transparent; color: #fff; padding: 13px 22px;
-border-radius: 8px; font-weight: 600; font-size: 14px;
-border: 1.5px solid rgba(255,255,255,0.3);
-text-decoration: none; transition: border-color .2s, color .2s;
-}
-.btn-outline:hover { border-color: var(–green); color: var(–green); }
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: #0B0B0B; }
+  ::-webkit-scrollbar-thumb { background: #25D366; border-radius: 2px; }
 
-/* HERO PHOTO placeholder */
-.hero-img {
-position: absolute; right: 0; bottom: 0; height: 100%; width: 46%;
-background: linear-gradient(to top, rgba(10,10,10,0.8) 0%, transparent 40%),
-radial-gradient(ellipse at 60% 50%, rgba(139,0,0,0.35) 0%, transparent 70%);
-display: flex; align-items: flex-end; justify-content: flex-end;
-overflow: hidden;
-}
-.hero-img-face {
-width: 100%; height: 100%;
-background: url(‘data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500"><defs><radialGradient id="g" cx="50%25" cy="40%25" r="50%25"><stop offset="0%25" stop-color="%23b45309" stop-opacity="0.3"/><stop offset="100%25" stop-color="%230a0a0a" stop-opacity="0"/></radialGradient></defs><rect width="400" height="500" fill="url(%23g)"/><ellipse cx="200" cy="170" rx="85" ry="100" fill="%23c8843a" opacity="0.5"/></svg>’) center/cover no-repeat;
-}
+  /* Navbar */
+  .navbar { transition: all 0.4s ease; }
+  .navbar.scrolled { background: rgba(11,11,11,0.95) !important; backdrop-filter: blur(20px); border-bottom: 1px solid #242424; }
 
-/* STATS */
-.stats-bar {
-background: #fff; border-radius: 16px;
-margin: -38px 60px 0; position: relative; z-index: 5;
-box-shadow: 0 8px 40px rgba(0,0,0,0.10);
-display: flex; divide: 1px solid var(–border);
-}
-.stat-item {
-flex: 1; padding: 28px 24px; display: flex; align-items: center; gap: 16px;
-border-right: 1px solid var(–border);
-}
-.stat-item:last-child { border-right: none; }
-.stat-icon {
-width: 48px; height: 48px; border-radius: 50%;
-background: rgba(34,197,94,0.12); display: flex; align-items: center; justify-content: center;
-flex-shrink: 0;
-}
-.stat-icon svg { width: 22px; height: 22px; color: var(–green); }
-.stat-num { font-family: ‘Syne’, sans-serif; font-size: 28px; font-weight: 800; color: var(–text); }
-.stat-unit { font-size: 13px; font-weight: 700; color: var(–green); margin-left: 4px; }
-.stat-label { font-size: 12px; color: var(–muted); margin-top: 2px; }
+  /* Hero gradient */
+  .hero-bg {
+    background: radial-gradient(ellipse 80% 60% at 60% 40%, rgba(180,0,0,0.12) 0%, transparent 70%),
+                radial-gradient(ellipse 40% 40% at 80% 80%, rgba(37,211,102,0.05) 0%, transparent 60%),
+                #0B0B0B;
+  }
 
-/* SECTIONS */
-section { padding: 80px 80px; }
-.section-tag { color: var(–green); font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; }
-.section-title { font-family: ‘Syne’, sans-serif; font-size: 32px; font-weight: 800; color: var(–text); margin-bottom: 40px; }
-.section-title-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 40px; }
-.section-title-row .section-title { margin-bottom: 0; }
-.view-more { color: var(–green); font-size: 14px; font-weight: 600; text-decoration: none; display: flex; align-items: center; gap: 6px; }
-.view-more:hover { text-decoration: underline; }
+  /* Green gradient text */
+  .text-gradient {
+    background: linear-gradient(135deg, #25D366 0%, #1aff7a 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
 
-/* CASE STUDIES */
-.cases { background: #fff; padding-top: 70px; }
-.cases-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-.case-card {
-border: 1px solid var(–border); border-radius: 14px;
-padding: 22px 20px; background: #fff;
-transition: box-shadow .2s, transform .2s;
-}
-.case-card:hover { box-shadow: 0 8px 30px rgba(0,0,0,0.09); transform: translateY(-3px); }
-.case-header { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
-.case-icon {
-width: 42px; height: 42px; border-radius: 50%;
-background: var(–green); display: flex; align-items: center; justify-content: center; flex-shrink: 0;
-}
-.case-icon svg { width: 18px; height: 18px; fill: #fff; }
-.case-name { font-family: ‘Syne’, sans-serif; font-weight: 700; font-size: 14px; line-height: 1.3; }
-.case-label { font-size: 11px; font-weight: 700; color: var(–green); letter-spacing: .5px; margin-bottom: 5px; }
-.case-desc { font-size: 12.5px; color: var(–muted); line-height: 1.5; margin-bottom: 12px; }
-.case-results { display: flex; gap: 16px; margin-top: 14px; padding-top: 14px; border-top: 1px solid var(–border); }
-.result-num { font-family: ‘Syne’, sans-serif; font-size: 22px; font-weight: 800; }
-.result-unit { font-size: 11px; font-weight: 700; color: var(–green); }
-.result-label { font-size: 11px; color: var(–muted); margin-top: 2px; }
+  /* Red gradient text */
+  .text-gradient-red {
+    background: linear-gradient(135deg, #FF2D2D 0%, #FF6B6B 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
 
-/* SERVICES */
-.services { background: var(–section-bg); }
-.services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-.service-card {
-background: #fff; border: 1px solid var(–border); border-radius: 14px;
-padding: 28px 24px; display: flex; gap: 16px;
-transition: box-shadow .2s;
-}
-.service-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.08); }
-.service-icon {
-width: 52px; height: 52px; border-radius: 50%; background: rgba(34,197,94,0.12);
-display: flex; align-items: center; justify-content: center; flex-shrink: 0;
-}
-.service-icon svg { width: 24px; height: 24px; color: var(–green); }
-.service-title { font-family: ‘Syne’, sans-serif; font-size: 15px; font-weight: 700; margin-bottom: 8px; }
-.service-desc { font-size: 13px; color: var(–muted); line-height: 1.6; }
+  /* Card hover */
+  .card-hover {
+    transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border: 1px solid #242424;
+  }
+  .card-hover:hover {
+    transform: translateY(-6px);
+    border-color: rgba(37,211,102,0.3);
+    box-shadow: 0 20px 60px rgba(37,211,102,0.08), 0 0 0 1px rgba(37,211,102,0.15);
+  }
 
-/* ABOUT */
-.about { background: #fff; }
-.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
-.about-text h2 { font-family: ‘Syne’, sans-serif; font-size: 28px; font-weight: 800; margin-bottom: 16px; }
-.about-text p { font-size: 14px; color: var(–muted); line-height: 1.75; margin-bottom: 20px; }
-.about-meta { display: flex; gap: 24px; }
-.about-meta-item { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(–muted); }
-.about-meta-item svg { width: 16px; height: 16px; color: var(–green); }
-.skills-section h3 { font-family: ‘Syne’, sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(–muted); margin-bottom: 16px; }
-.skills-tags { display: flex; flex-wrap: wrap; gap: 10px; }
-.skill-tag {
-border: 1px solid var(–border); border-radius: 8px;
-padding: 7px 14px; font-size: 13px; font-weight: 500; color: var(–text);
-transition: border-color .2s, color .2s;
-}
-.skill-tag:hover { border-color: var(–green); color: var(–green); }
+  /* WA button */
+  .wa-btn {
+    background: linear-gradient(135deg, #25D366, #1DAF57);
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 30px rgba(37,211,102,0.35);
+  }
+  .wa-btn:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 14px 40px rgba(37,211,102,0.5);
+  }
 
-/* TESTIMONIALS */
-.testimonials { background: var(–section-bg); }
-.testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-.testi-card {
-background: #fff; border: 1px solid var(–border); border-radius: 14px; padding: 26px 22px;
-transition: box-shadow .2s;
-}
-.testi-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.08); }
-.quote-icon { font-size: 36px; color: var(–green); line-height: 1; margin-bottom: 14px; font-family: Georgia, serif; }
-.testi-text { font-size: 13.5px; color: var(–muted); line-height: 1.7; margin-bottom: 20px; }
-.testi-author { font-weight: 700; font-size: 14px; }
-.testi-role { font-size: 12px; color: var(–muted); margin-top: 3px; }
+  /* Floating WA */
+  .wa-float {
+    position: fixed;
+    bottom: 32px;
+    right: 28px;
+    z-index: 999;
+    background: linear-gradient(135deg, #25D366, #1DAF57);
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 30px rgba(37,211,102,0.5);
+    transition: all 0.3s ease;
+    animation: pulse-wa 2s infinite;
+  }
+  .wa-float:hover {
+    transform: scale(1.12);
+    box-shadow: 0 12px 40px rgba(37,211,102,0.7);
+  }
 
-/* CTA */
-.cta {
-background: var(–dark); padding: 70px 80px;
-display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;
-}
-.cta-left .cta-tag { color: var(–green); font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 14px; }
-.cta-left h2 { font-family: ‘Syne’, sans-serif; font-size: 36px; font-weight: 800; color: #fff; margin-bottom: 12px; line-height: 1.2; }
-.cta-left p { color: #888; font-size: 14px; line-height: 1.65; margin-bottom: 28px; }
-.cta-right { display: flex; flex-direction: column; gap: 16px; }
-.contact-item { display: flex; align-items: center; gap: 14px; color: #ccc; font-size: 14px; }
-.contact-icon { width: 18px; height: 18px; color: var(–green); flex-shrink: 0; }
+  @keyframes pulse-wa {
+    0%, 100% { box-shadow: 0 8px 30px rgba(37,211,102,0.5); }
+    50% { box-shadow: 0 8px 50px rgba(37,211,102,0.8), 0 0 0 12px rgba(37,211,102,0.08); }
+  }
 
-/* FOOTER */
-footer {
-background: var(–dark); border-top: 1px solid #1f1f1f;
-padding: 18px 80px; text-align: center;
-color: #555; font-size: 12px;
-}
+  /* Metric number animation */
+  .metric-num { font-family: 'Bebas Neue', sans-serif; }
 
-@media (max-width: 900px) {
-nav { padding: 0 20px; }
-.nav-links { display: none; }
-.hero { padding: 40px 24px 100px; }
-.hero h1 { font-size: 34px; }
-.hero-img { display: none; }
-.stats-bar { margin: -30px 20px 0; flex-wrap: wrap; }
-.stat-item { min-width: 50%; border-bottom: 1px solid var(–border); }
-section { padding: 50px 24px; }
-.cases-grid, .services-grid, .testimonials-grid { grid-template-columns: 1fr; }
-.about-grid { grid-template-columns: 1fr; }
-.cta { grid-template-columns: 1fr; padding: 50px 24px; }
-footer { padding: 18px 24px; }
-.section-title-row { flex-direction: column; align-items: flex-start; gap: 10px; }
-}
+  /* Section reveal */
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-4 { transition-delay: 0.4s; }
+
+  /* Tag skill */
+  .skill-tag {
+    background: #141414;
+    border: 1px solid #242424;
+    transition: all 0.3s ease;
+  }
+  .skill-tag:hover {
+    background: rgba(37,211,102,0.08);
+    border-color: rgba(37,211,102,0.4);
+    color: #25D366;
+  }
+
+  /* Hero portrait placeholder */
+  .portrait-container {
+    position: relative;
+  }
+  .portrait-glow {
+    position: absolute;
+    inset: -30px;
+    background: radial-gradient(ellipse at center, rgba(37,211,102,0.12) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  /* Stats bar */
+  .stats-card {
+    background: linear-gradient(135deg, #1A1A1A, #141414);
+    border: 1px solid #242424;
+    position: relative;
+    overflow: hidden;
+  }
+  .stats-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #25D366, #1aff7a);
+  }
+
+  /* Case study */
+  .case-study-card {
+    background: linear-gradient(160deg, #141414 0%, #0f0f0f 100%);
+    border: 1px solid #1e1e1e;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+  }
+  .case-study-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #25D366, transparent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+  }
+  .case-study-card:hover::after { transform: scaleX(1); }
+  .case-study-card:hover { border-color: #2a2a2a; transform: translateY(-4px); }
+
+  /* Nav link */
+  .nav-link {
+    position: relative;
+    color: #9a9a9a;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+  }
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: #25D366;
+    transition: width 0.3s ease;
+  }
+  .nav-link:hover { color: #fff; }
+  .nav-link:hover::after { width: 100%; }
+
+  /* Divider line */
+  .section-divider {
+    width: 48px;
+    height: 2px;
+    background: linear-gradient(90deg, #25D366, #1aff7a);
+    margin: 16px 0 24px;
+  }
+
+  /* Testimonial card */
+  .testimonial-card {
+    background: #141414;
+    border: 1px solid #1e1e1e;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+  .testimonial-card:hover {
+    border-color: rgba(37,211,102,0.2);
+  }
+
+  /* Result badge */
+  .result-badge {
+    background: rgba(37,211,102,0.1);
+    border: 1px solid rgba(37,211,102,0.25);
+    color: #25D366;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 100px;
+    display: inline-block;
+  }
+
+  /* Grid lines bg */
+  .grid-bg {
+    background-image: linear-gradient(rgba(37,211,102,0.03) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(37,211,102,0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  /* Hero headline */
+  .hero-title {
+    font-family: 'Bebas Neue', sans-serif;
+    line-height: 0.92;
+    letter-spacing: -0.01em;
+  }
+
+  /* Marquee */
+  .marquee-track {
+    display: flex;
+    gap: 48px;
+    animation: marquee 20s linear infinite;
+    white-space: nowrap;
+  }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  .marquee-wrapper { overflow: hidden; }
+
+  /* Mobile nav */
+  #mobile-menu {
+    transition: all 0.3s ease;
+  }
+
+  /* Service icon */
+  .service-icon {
+    width: 48px;
+    height: 48px;
+    background: rgba(37,211,102,0.08);
+    border: 1px solid rgba(37,211,102,0.15);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+
+  /* USP item */
+  .usp-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 20px 0;
+    border-bottom: 1px solid #1a1a1a;
+  }
+  .usp-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.5rem;
+    line-height: 1;
+    color: rgba(37,211,102,0.25);
+    min-width: 48px;
+  }
+
+  @media (max-width: 768px) {
+    .hero-title { font-size: clamp(60px, 14vw, 120px); }
+  }
 </style>
-
 </head>
 <body>
 
-<!-- NAV -->
+<!-- FLOATING WHATSAPP -->
+<a href="https://wa.me/201009770363?text=Hi%20Mahmoud,%20I%20saw%20your%20portfolio%20and%20I%20want%20to%20work%20with%20you." target="_blank" class="wa-float" aria-label="WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
 
-<nav>
-  <div class="logo">
-    <div class="logo-icon">MH</div>
-    <div>
-      <div style="font-size:13px;line-height:1.2">MAHMOUD ELHADY</div>
-      <div style="font-size:10px;font-weight:500;color:var(--muted);letter-spacing:1px">MEDIA BUYER</div>
+<!-- NAVBAR -->
+<nav class="navbar fixed top-0 left-0 right-0 z-50 px-6 py-4">
+  <div class="max-w-7xl mx-auto flex items-center justify-between">
+    <!-- Logo -->
+    <a href="#hero" class="flex items-center gap-3">
+      <div style="width:38px;height:38px;background:linear-gradient(135deg,#25D366,#1aff7a);border-radius:10px;display:flex;align-items:center;justify-content:center;">
+        <span style="font-family:'Bebas Neue',sans-serif;font-size:20px;color:#000;line-height:1;">M</span>
+      </div>
+      <span style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1rem;letter-spacing:-0.01em;">Mahmoud<span class="text-gradient">.</span></span>
+    </a>
+    
+    <!-- Desktop Nav -->
+    <div class="hidden lg:flex items-center gap-8">
+      <a href="#about" class="nav-link">About</a>
+      <a href="#services" class="nav-link">Services</a>
+      <a href="#cases" class="nav-link">Case Studies</a>
+      <a href="#results" class="nav-link">Results</a>
+      <a href="#testimonials" class="nav-link">Testimonials</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </div>
+
+    <!-- Nav CTA -->
+    <div class="hidden lg:flex items-center gap-4">
+      <a href="https://wa.me/201009770363?text=Hi%20Mahmoud,%20I%20saw%20your%20portfolio%20and%20I%20want%20to%20work%20with%20you." target="_blank" class="wa-btn px-5 py-2.5 rounded-xl text-black font-heading font-700 text-sm flex items-center gap-2" style="font-weight:700;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="black"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Start Now
+      </a>
+    </div>
+
+    <!-- Mobile hamburger -->
+    <button id="menu-toggle" class="lg:hidden flex flex-col gap-1.5 p-2" aria-label="Menu">
+      <span class="w-6 h-0.5 bg-white transition-all" id="h1"></span>
+      <span class="w-6 h-0.5 bg-white transition-all" id="h2"></span>
+      <span class="w-4 h-0.5 bg-white transition-all" id="h3"></span>
+    </button>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="lg:hidden hidden mt-4 pb-4 border-t border-border">
+    <div class="flex flex-col gap-1 pt-4 px-2">
+      <a href="#about" class="mobile-nav-link py-2.5 px-4 rounded-lg text-gray-300 hover:text-white hover:bg-card font-body text-sm transition-all">About</a>
+      <a href="#services" class="mobile-nav-link py-2.5 px-4 rounded-lg text-gray-300 hover:text-white hover:bg-card font-body text-sm transition-all">Services</a>
+      <a href="#cases" class="mobile-nav-link py-2.5 px-4 rounded-lg text-gray-300 hover:text-white hover:bg-card font-body text-sm transition-all">Case Studies</a>
+      <a href="#results" class="mobile-nav-link py-2.5 px-4 rounded-lg text-gray-300 hover:text-white hover:bg-card font-body text-sm transition-all">Results</a>
+      <a href="#testimonials" class="mobile-nav-link py-2.5 px-4 rounded-lg text-gray-300 hover:text-white hover:bg-card font-body text-sm transition-all">Testimonials</a>
+      <a href="#contact" class="mobile-nav-link py-2.5 px-4 rounded-lg text-gray-300 hover:text-white hover:bg-card font-body text-sm transition-all">Contact</a>
+      <a href="https://wa.me/201009770363?text=Hi%20Mahmoud,%20I%20saw%20your%20portfolio%20and%20I%20want%20to%20work%20with%20you." target="_blank" class="wa-btn mt-2 mx-4 py-3 px-6 rounded-xl text-black font-heading font-bold text-sm text-center">Message on WhatsApp</a>
     </div>
   </div>
-  <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#services">Services</a></li>
-    <li><a href="#cases">Case Studies</a></li>
-    <li><a href="#results">Results</a></li>
-    <li><a href="#testimonials">Testimonials</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-  <a href="https://wa.me/201009770363" class="btn-wa" target="_blank">
-    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.05.5C5.495.5.065 5.928.065 12.484c0 2.122.547 4.114 1.503 5.849L.001 23.5l5.296-1.543a11.963 11.963 0 005.753 1.47h.005c6.554 0 11.984-5.428 11.984-11.984C23.039 5.887 18.603.5 12.05.5zm-.001 21.949a9.934 9.934 0 01-5.066-1.382l-.363-.216-3.145.916.894-3.073-.237-.376A9.907 9.907 0 012.065 12.48C2.065 6.988 6.557 2.5 12.05 2.5c5.49 0 9.983 4.488 9.983 9.98 0 5.494-4.494 9.969-9.984 9.969z"/></svg>
-    Message Me
-  </a>
 </nav>
 
-<!-- HERO -->
+<!-- ======================== HERO ======================== -->
+<section id="hero" class="hero-bg grid-bg min-h-screen flex items-center pt-20 pb-0 relative overflow-hidden">
+  <!-- Background decorative elements -->
+  <div style="position:absolute;top:20%;right:5%;width:400px;height:400px;background:radial-gradient(circle,rgba(255,45,45,0.06) 0%,transparent 70%);pointer-events:none;"></div>
+  <div style="position:absolute;bottom:10%;left:10%;width:300px;height:300px;background:radial-gradient(circle,rgba(37,211,102,0.05) 0%,transparent 70%);pointer-events:none;"></div>
+  
+  <div class="max-w-7xl mx-auto px-6 w-full">
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+      
+      <!-- Left Content -->
+      <div class="order-2 lg:order-1">
+        <div class="result-badge mb-8 reveal">🔥 Elite Performance Media Buyer</div>
+        
+        <h1 class="hero-title text-white reveal reveal-delay-1" style="font-size:clamp(72px,10vw,130px);">
+          I TURN<br>
+          <span class="text-gradient">AD SPEND</span><br>
+          INTO REAL<br>
+          GROWTH.
+        </h1>
+        
+        <p class="mt-8 text-gray-400 text-lg leading-relaxed max-w-lg reveal reveal-delay-2" style="font-family:'DM Sans',sans-serif;">
+          Performance-obsessed media buyer delivering <span style="color:#fff;font-weight:500;">scalable leads</span>, <span style="color:#fff;font-weight:500;">lower CPAs</span>, and <span style="color:#fff;font-weight:500;">profitable campaigns</span> across Facebook, Instagram & TikTok — for serious businesses that want results.
+        </p>
 
-<div class="hero">
-  <div class="hero-content">
-    <div class="hero-badge">Media Buyer</div>
-    <h1>I Turn Ad Spend<br>Into <span>Real Results.</span></h1>
-    <p>Data-driven Media Buyer specializing in performance campaigns that generate leads, sales, and profit.</p>
-    <div class="hero-btns">
-      <a href="https://wa.me/201009770363" class="btn-primary" target="_blank">
-        <svg viewBox="0 0 24 24" fill="currentColor" style="width:16px;height:16px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.05.5C5.495.5.065 5.928.065 12.484c0 2.122.547 4.114 1.503 5.849L.001 23.5l5.296-1.543a11.963 11.963 0 005.753 1.47h.005c6.554 0 11.984-5.428 11.984-11.984C23.039 5.887 18.603.5 12.05.5zm-.001 21.949a9.934 9.934 0 01-5.066-1.382l-.363-.216-3.145.916.894-3.073-.237-.376A9.907 9.907 0 012.065 12.48C2.065 6.988 6.557 2.5 12.05 2.5c5.49 0 9.983 4.488 9.983 9.98 0 5.494-4.494 9.969-9.984 9.969z"/></svg>
-        Message Me on WhatsApp
+        <div class="flex flex-wrap gap-4 mt-10 reveal reveal-delay-3">
+          <a href="https://wa.me/201009770363?text=Hi%20Mahmoud,%20I%20saw%20your%20portfolio%20and%20I%20want%20to%20work%20with%20you." target="_blank" class="wa-btn px-8 py-4 rounded-2xl text-black font-heading font-bold text-base flex items-center gap-3">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="black"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Start Your Campaign
+          </a>
+          <a href="#cases" class="px-8 py-4 rounded-2xl border border-border text-white font-heading font-bold text-base hover:border-gray-500 transition-all flex items-center gap-2" style="font-family:'Montserrat',sans-serif;">
+            View Results
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+        <!-- Trust indicators -->
+        <div class="flex flex-wrap items-center gap-6 mt-12 reveal reveal-delay-4">
+          <div class="flex items-center gap-2">
+            <div style="width:8px;height:8px;background:#25D366;border-radius:50%;animation:pulse-wa 2s infinite;"></div>
+            <span class="text-gray-500 text-sm" style="font-family:'DM Sans',sans-serif;">Available for new clients</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span style="color:#25D366;">★★★★★</span>
+            <span class="text-gray-500 text-sm">5.0 Client Rating</span>
+          </div>
+          <div class="text-gray-500 text-sm">🌍 Serving USA · GCC · Europe</div>
+        </div>
+      </div>
+
+      <!-- Right — Portrait -->
+      <div class="order-1 lg:order-2 flex justify-center lg:justify-end reveal">
+        <div class="portrait-container relative">
+          <div class="portrait-glow"></div>
+          <!-- Portrait placeholder — replace src with real photo -->
+          <div style="
+            width: clamp(280px, 40vw, 480px);
+            height: clamp(340px, 50vw, 580px);
+            background: linear-gradient(160deg, #1a1a1a 0%, #0d0d0d 100%);
+            border-radius: 32px;
+            border: 1px solid #242424;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            position: relative;
+            overflow: hidden;
+          ">
+            <!-- Decorative grid inside portrait area -->
+            <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(37,211,102,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(37,211,102,0.04) 1px,transparent 1px);background-size:30px 30px;"></div>
+            <div style="position:absolute;bottom:0;left:0;right:0;height:50%;background:linear-gradient(to top, rgba(180,0,0,0.15), transparent);"></div>
+            <!-- Avatar SVG -->
+            <div style="position:relative;z-index:1;text-align:center;">
+              <div style="width:100px;height:100px;background:linear-gradient(135deg,#25D366,#1aff7a);border-radius:50%;margin:0 auto 12px;display:flex;align-items:center;justify-content:center;">
+                <svg width="56" height="56" viewBox="0 0 24 24" fill="rgba(0,0,0,0.7)"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>
+              </div>
+              <div style="font-family:'Bebas Neue',sans-serif;font-size:2rem;color:#fff;">MAHMOUD</div>
+              <div style="font-family:'DM Sans',sans-serif;font-size:0.8rem;color:#25D366;letter-spacing:0.12em;text-transform:uppercase;">Media Buyer</div>
+            </div>
+            <!-- Replace this entire div with: <img src="your-photo.jpg" style="width:100%;height:100%;object-fit:cover;border-radius:32px;" alt="Mahmoud"> -->
+          </div>
+          <!-- Floating stat badges -->
+          <div style="position:absolute;top:24px;left:-20px;background:#1a1a1a;border:1px solid #282828;border-radius:14px;padding:10px 16px;box-shadow:0 8px 30px rgba(0,0,0,0.5);">
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:1.5rem;color:#25D366;line-height:1;">$500K+</div>
+            <div style="font-size:0.68rem;color:#666;font-family:'DM Sans',sans-serif;">Ad Spend Managed</div>
+          </div>
+          <div style="position:absolute;bottom:40px;right:-20px;background:#1a1a1a;border:1px solid #282828;border-radius:14px;padding:10px 16px;box-shadow:0 8px 30px rgba(0,0,0,0.5);">
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:1.5rem;color:#25D366;line-height:1;">10,000+</div>
+            <div style="font-size:0.68rem;color:#666;font-family:'DM Sans',sans-serif;">Leads Generated</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ======================== MARQUEE ======================== -->
+<div style="background:#111;border-top:1px solid #1a1a1a;border-bottom:1px solid #1a1a1a;padding:16px 0;overflow:hidden;">
+  <div class="marquee-wrapper">
+    <div class="marquee-track" style="display:flex;gap:60px;">
+      <span style="font-family:'Bebas Neue',sans-serif;font-size:1.1rem;color:#333;letter-spacing:0.1em;">FACEBOOK ADS</span>
+      <span style="color:#25D366;font-size:1rem;">✦</span>
+      <span style="font-family:'Bebas Neue',sans-serif;font-size:1.1rem;color:#333;letter-spacing:0.1em;">INSTAGRAM ADS</span>
+      <span style="color:#25D366;font-size:1rem;">✦</span>
+      <span style="font-family:'Bebas Neue',sans-serif;font-size:1.1rem;color:#333;letter-spacing:0.1em;">TIKTOK ADS</span>
+      <span style="color:#25D366;font-size:1rem;">✦</span>
+      <span style="font-family:'Bebas Neue',sans-serif;font-size:1.1rem;color:#333;letter-spacing:0.1em;">LEAD GENERATION</span>
+      <span style="color:#25D366;font-size:1rem;">✦</span>
+      <span style="font-family:'Bebas Neue',sans-serif;font-size:1.1rem;color:#333;letter-spacing:0.1em;">E-COMMERCE SCALING</span>
+      <span style="color:#25D366;font-size:1rem;">✦</span>
+      <span style="font-family:'Bebas Neue',sans-serif;font-size:1.1rem;color:#333;letter-spacing:0.1em;">CPA OPTIMIZATION</span>
+      <span style="color:#25D366;font-size:1rem;">✦</span>
+      <span style="font-family:'Bebas Neue',sans-serif;font-size:1.1rem;color:#333;letter-spacing:0.1em;">CREATIVE TESTING</span>
+      <span style="color:#25D366;font-size:1rem;">✦</span>
+      <span style="font-family:'Bebas Neue',sans-serif;font-size:1.1rem;color:#333;letter-spacing:0.1em;">ROAS MAXIMIZATION</span>
+      <span style="color:#25D366;font-size:1rem;">✦</span>
+      <!-- Duplicate for seamless loop -->
+      <span style="font-family:'Bebas Neue',sans-serif;font-size:1.1rem;color:#333;letter-spacing:0.1em;">FACEBOOK ADS</span>
+      <span style="color:#25D366;font-size:1rem;">✦</span>
+      <span style="font-family:'Bebas Neue',sans-serif;font-size:1.1rem;color:#333;letter-spacing:0.1em;">INSTAGRAM ADS</span>
+      <span style="color:#25D366;font-size:1rem;">✦</span>
+      <span style="font-family:'Bebas Neue',sans-serif;font-size:1.1rem;color:#333;letter-spacing:0.1em;">TIKTOK ADS</span>
+      <span style="color:#25D366;font-size:1rem;">✦</span>
+      <span style="font-family:'Bebas Neue',sans-serif;font-size:1.1rem;color:#333;letter-spacing:0.1em;">LEAD GENERATION</span>
+      <span style="color:#25D366;font-size:1rem;">✦</span>
+      <span style="font-family:'Bebas Neue',sans-serif;font-size:1.1rem;color:#333;letter-spacing:0.1em;">E-COMMERCE SCALING</span>
+      <span style="color:#25D366;font-size:1rem;">✦</span>
+      <span style="font-family:'Bebas Neue',sans-serif;font-size:1.1rem;color:#333;letter-spacing:0.1em;">CPA OPTIMIZATION</span>
+      <span style="color:#25D366;font-size:1rem;">✦</span>
+      <span style="font-family:'Bebas Neue',sans-serif;font-size:1.1rem;color:#333;letter-spacing:0.1em;">CREATIVE TESTING</span>
+      <span style="color:#25D366;font-size:1rem;">✦</span>
+      <span style="font-family:'Bebas Neue',sans-serif;font-size:1.1rem;color:#333;letter-spacing:0.1em;">ROAS MAXIMIZATION</span>
+      <span style="color:#25D366;font-size:1rem;">✦</span>
+    </div>
+  </div>
+</div>
+
+<!-- ======================== RESULTS SNAPSHOT ======================== -->
+<section id="results" class="py-24 px-6">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-16 reveal">
+      <div class="result-badge mb-4">Proof of Performance</div>
+      <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(48px,7vw,80px);line-height:1;color:#fff;">NUMBERS THAT SPEAK</h2>
+      <p class="text-gray-500 mt-4 max-w-xl mx-auto">Real campaign data from real businesses. No inflated claims — pure performance.</p>
+    </div>
+
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
+      <div class="stats-card rounded-2xl p-6 lg:p-8 reveal card-hover">
+        <div style="font-size:1.5rem;margin-bottom:8px;">💰</div>
+        <div class="metric-num text-white" style="font-size:clamp(2.5rem,5vw,3.5rem);line-height:1;" data-target="500">0</div>
+        <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.75rem;color:#25D366;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:4px;">K+ Ad Spend Managed</div>
+        <div class="text-gray-600 text-xs">Across all platforms</div>
+      </div>
+
+      <div class="stats-card rounded-2xl p-6 lg:p-8 reveal reveal-delay-1 card-hover">
+        <div style="font-size:1.5rem;margin-bottom:8px;">🎯</div>
+        <div class="metric-num text-white" style="font-size:clamp(2.5rem,5vw,3.5rem);line-height:1;" data-target="10000">0</div>
+        <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.75rem;color:#25D366;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:4px;">+ Leads Generated</div>
+        <div class="text-gray-600 text-xs">Qualified results</div>
+      </div>
+
+      <div class="stats-card rounded-2xl p-6 lg:p-8 reveal reveal-delay-2 card-hover">
+        <div style="font-size:1.5rem;margin-bottom:8px;">⚡</div>
+        <div class="metric-num text-white" style="font-size:clamp(2.5rem,5vw,3.5rem);line-height:1;">$0.8</div>
+        <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.75rem;color:#25D366;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:4px;">Best Cost Per Lead</div>
+        <div class="text-gray-600 text-xs">Record low CPA achieved</div>
+      </div>
+
+      <div class="stats-card rounded-2xl p-6 lg:p-8 reveal reveal-delay-3 card-hover">
+        <div style="font-size:1.5rem;margin-bottom:8px;">📈</div>
+        <div class="metric-num text-white" style="font-size:clamp(2.5rem,5vw,3.5rem);line-height:1;">8x</div>
+        <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.75rem;color:#25D366;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:4px;">Peak ROAS</div>
+        <div class="text-gray-600 text-xs">Return on ad spend</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================== CASE STUDIES ======================== -->
+<section id="cases" class="py-24 px-6" style="background:#0d0d0d;">
+  <div class="max-w-7xl mx-auto">
+    <div class="mb-16 reveal">
+      <div class="result-badge mb-4">Case Studies</div>
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(48px,7vw,80px);line-height:1;color:#fff;">SUCCESS STORIES</div>
+      <div class="section-divider"></div>
+      <p class="text-gray-500 max-w-xl">Real campaigns. Real challenges. Measurable results.</p>
+    </div>
+
+    <div class="grid lg:grid-cols-2 gap-6">
+
+      <!-- Case Study 1 -->
+      <div class="case-study-card rounded-2xl p-8 reveal">
+        <div class="flex items-start justify-between mb-6">
+          <div>
+            <div class="result-badge mb-3">Lead Generation</div>
+            <h3 style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.4rem;color:#fff;">Real Estate Developer<br><span class="text-gradient">Egypt → Gulf Market</span></h3>
+          </div>
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:2.5rem;color:rgba(37,211,102,0.15);line-height:1;">01</div>
+        </div>
+        <div class="space-y-4 mb-6">
+          <div>
+            <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.7rem;color:#666;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">Challenge</div>
+            <p class="text-gray-400 text-sm leading-relaxed">Client was paying $15+ per lead with inconsistent quality. High spend, low conversion pipeline — burning budget without ROI.</p>
+          </div>
+          <div>
+            <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.7rem;color:#666;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">Strategy</div>
+            <p class="text-gray-400 text-sm leading-relaxed">Rebuilt audience architecture with layered interest + behavioral targeting. Launched 12 creative variants in A/B rotation. Implemented strict lead scoring via form logic.</p>
+          </div>
+          <div>
+            <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.7rem;color:#666;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">Execution</div>
+            <p class="text-gray-400 text-sm leading-relaxed">Meta Ads (Facebook + Instagram) + Landing page CRO. Daily budget optimization. Weekly creative refresh cycle.</p>
+          </div>
+        </div>
+        <div style="background:#111;border-radius:16px;padding:20px;border:1px solid #1e1e1e;">
+          <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.7rem;color:#666;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:12px;">Final Results</div>
+          <div class="grid grid-cols-3 gap-4">
+            <div>
+              <div style="font-family:'Bebas Neue',sans-serif;font-size:1.8rem;color:#25D366;line-height:1;">$2.40</div>
+              <div class="text-gray-600 text-xs mt-1">Cost Per Lead</div>
+            </div>
+            <div>
+              <div style="font-family:'Bebas Neue',sans-serif;font-size:1.8rem;color:#25D366;line-height:1;">84%</div>
+              <div class="text-gray-600 text-xs mt-1">CPA Reduction</div>
+            </div>
+            <div>
+              <div style="font-family:'Bebas Neue',sans-serif;font-size:1.8rem;color:#25D366;line-height:1;">3,200+</div>
+              <div class="text-gray-600 text-xs mt-1">Qualified Leads</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Case Study 2 -->
+      <div class="case-study-card rounded-2xl p-8 reveal reveal-delay-1">
+        <div class="flex items-start justify-between mb-6">
+          <div>
+            <div class="result-badge mb-3" style="background:rgba(255,45,45,0.1);border-color:rgba(255,45,45,0.25);color:#FF6B6B;">E-Commerce</div>
+            <h3 style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.4rem;color:#fff;">Fashion Brand<br><span class="text-gradient-red">Cold Traffic Scaling</span></h3>
+          </div>
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:2.5rem;color:rgba(255,45,45,0.12);line-height:1;">02</div>
+        </div>
+        <div class="space-y-4 mb-6">
+          <div>
+            <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.7rem;color:#666;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">Challenge</div>
+            <p class="text-gray-400 text-sm leading-relaxed">Store had strong organic presence but paid ads were unprofitable. ROAS stuck at 1.3x despite weekly budget increases.</p>
+          </div>
+          <div>
+            <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.7rem;color:#666;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">Strategy</div>
+            <p class="text-gray-400 text-sm leading-relaxed">Full-funnel restructure: TOFU awareness → MOFU retargeting → BOFU purchase campaigns. Creative angles tested across demographics. Catalog ads with dynamic pricing overlays.</p>
+          </div>
+          <div>
+            <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.7rem;color:#666;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">Execution</div>
+            <p class="text-gray-400 text-sm leading-relaxed">Meta + TikTok parallel campaigns. UGC-style creative testing. Pixel event optimization per funnel stage.</p>
+          </div>
+        </div>
+        <div style="background:#111;border-radius:16px;padding:20px;border:1px solid #1e1e1e;">
+          <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.7rem;color:#666;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:12px;">Final Results</div>
+          <div class="grid grid-cols-3 gap-4">
+            <div>
+              <div style="font-family:'Bebas Neue',sans-serif;font-size:1.8rem;color:#25D366;line-height:1;">8.2x</div>
+              <div class="text-gray-600 text-xs mt-1">Peak ROAS</div>
+            </div>
+            <div>
+              <div style="font-family:'Bebas Neue',sans-serif;font-size:1.8rem;color:#25D366;line-height:1;">530%</div>
+              <div class="text-gray-600 text-xs mt-1">Revenue Growth</div>
+            </div>
+            <div>
+              <div style="font-family:'Bebas Neue',sans-serif;font-size:1.8rem;color:#25D366;line-height:1;">$85K</div>
+              <div class="text-gray-600 text-xs mt-1">Monthly Revenue</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Case Study 3 -->
+      <div class="case-study-card rounded-2xl p-8 reveal">
+        <div class="flex items-start justify-between mb-6">
+          <div>
+            <div class="result-badge mb-3" style="background:rgba(255,200,0,0.08);border-color:rgba(255,200,0,0.2);color:#ffc800;">Service Business</div>
+            <h3 style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.4rem;color:#fff;">Education Platform<br><span style="background:linear-gradient(135deg,#ffc800,#ffaa00);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Course Launch</span></h3>
+          </div>
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:2.5rem;color:rgba(255,200,0,0.1);line-height:1;">03</div>
+        </div>
+        <div class="space-y-4 mb-6">
+          <div>
+            <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.7rem;color:#666;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">Challenge</div>
+            <p class="text-gray-400 text-sm leading-relaxed">New course launch with zero audience. No pixel data. Aggressive launch window of 30 days to hit enrollment targets.</p>
+          </div>
+          <div>
+            <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.7rem;color:#666;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">Strategy</div>
+            <p class="text-gray-400 text-sm leading-relaxed">Rapid audience discovery phase → lookalike scaling. Video view → webinar registration → purchase funnel. Urgency-driven creative with countdown overlays.</p>
+          </div>
+          <div>
+            <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.7rem;color:#666;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">Execution</div>
+            <p class="text-gray-400 text-sm leading-relaxed">Facebook + Instagram. Lead magnet funnel pre-launch. Retargeting hot audiences during launch week.</p>
+          </div>
+        </div>
+        <div style="background:#111;border-radius:16px;padding:20px;border:1px solid #1e1e1e;">
+          <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.7rem;color:#666;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:12px;">Final Results</div>
+          <div class="grid grid-cols-3 gap-4">
+            <div>
+              <div style="font-family:'Bebas Neue',sans-serif;font-size:1.8rem;color:#25D366;line-height:1;">$4.10</div>
+              <div class="text-gray-600 text-xs mt-1">Cost Per Lead</div>
+            </div>
+            <div>
+              <div style="font-family:'Bebas Neue',sans-serif;font-size:1.8rem;color:#25D366;line-height:1;">1,800</div>
+              <div class="text-gray-600 text-xs mt-1">Registrations</div>
+            </div>
+            <div>
+              <div style="font-family:'Bebas Neue',sans-serif;font-size:1.8rem;color:#25D366;line-height:1;">340%</div>
+              <div class="text-gray-600 text-xs mt-1">Target Exceeded</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Case Study 4 -->
+      <div class="case-study-card rounded-2xl p-8 reveal reveal-delay-1">
+        <div class="flex items-start justify-between mb-6">
+          <div>
+            <div class="result-badge mb-3" style="background:rgba(150,100,255,0.1);border-color:rgba(150,100,255,0.25);color:#c084fc;">Local Business</div>
+            <h3 style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.4rem;color:#fff;">Medical Clinic<br><span style="background:linear-gradient(135deg,#a855f7,#c084fc);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Patient Acquisition</span></h3>
+          </div>
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:2.5rem;color:rgba(150,100,255,0.1);line-height:1;">04</div>
+        </div>
+        <div class="space-y-4 mb-6">
+          <div>
+            <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.7rem;color:#666;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">Challenge</div>
+            <p class="text-gray-400 text-sm leading-relaxed">Clinic relying on word-of-mouth. Needed to scale appointments digitally without inflating ad costs.</p>
+          </div>
+          <div>
+            <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.7rem;color:#666;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">Strategy</div>
+            <p class="text-gray-400 text-sm leading-relaxed">Geo-targeted local campaigns with hyper-specific demographics. Facebook Lead Ads for frictionless form submission. Trust-building creative angles.</p>
+          </div>
+          <div>
+            <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.7rem;color:#666;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">Execution</div>
+            <p class="text-gray-400 text-sm leading-relaxed">Facebook instant forms + Messenger flow. Retargeting based on video engagement. Monthly creative refresh to prevent ad fatigue.</p>
+          </div>
+        </div>
+        <div style="background:#111;border-radius:16px;padding:20px;border:1px solid #1e1e1e;">
+          <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.7rem;color:#666;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:12px;">Final Results</div>
+          <div class="grid grid-cols-3 gap-4">
+            <div>
+              <div style="font-family:'Bebas Neue',sans-serif;font-size:1.8rem;color:#25D366;line-height:1;">$1.20</div>
+              <div class="text-gray-600 text-xs mt-1">Cost Per Lead</div>
+            </div>
+            <div>
+              <div style="font-family:'Bebas Neue',sans-serif;font-size:1.8rem;color:#25D366;line-height:1;">2,400+</div>
+              <div class="text-gray-600 text-xs mt-1">Appointments</div>
+            </div>
+            <div>
+              <div style="font-family:'Bebas Neue',sans-serif;font-size:1.8rem;color:#25D366;line-height:1;">5x</div>
+              <div class="text-gray-600 text-xs mt-1">ROI Achieved</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ======================== SERVICES ======================== -->
+<section id="services" class="py-24 px-6">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-16 reveal">
+      <div class="result-badge mb-4">What I Do</div>
+      <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(48px,7vw,80px);line-height:1;color:#fff;">PREMIUM SERVICES</h2>
+      <p class="text-gray-500 mt-4 max-w-xl mx-auto">Strategic advertising solutions engineered for one outcome — profitable growth.</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+
+      <div class="card-hover rounded-2xl p-8 reveal" style="background:#141414;">
+        <div class="service-icon">🎯</div>
+        <h3 style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.2rem;color:#fff;margin-bottom:12px;">Lead Generation</h3>
+        <p class="text-gray-500 text-sm leading-relaxed mb-6">Precision-targeted campaigns that fill your pipeline with qualified, purchase-ready leads. Every ad dollar works toward your revenue goals.</p>
+        <ul class="space-y-2">
+          <li class="text-gray-400 text-sm flex items-center gap-2"><span style="color:#25D366;">✓</span> Facebook & Instagram Lead Ads</li>
+          <li class="text-gray-400 text-sm flex items-center gap-2"><span style="color:#25D366;">✓</span> Messenger & WhatsApp funnels</li>
+          <li class="text-gray-400 text-sm flex items-center gap-2"><span style="color:#25D366;">✓</span> Real estate, clinics, education</li>
+          <li class="text-gray-400 text-sm flex items-center gap-2"><span style="color:#25D366;">✓</span> CPA-first optimization</li>
+        </ul>
+      </div>
+
+      <div class="card-hover rounded-2xl p-8 reveal reveal-delay-1 relative" style="background:#141414;border-color:rgba(37,211,102,0.2) !important;">
+        <div style="position:absolute;top:-1px;left:24px;right:24px;height:2px;background:linear-gradient(90deg,#25D366,#1aff7a);border-radius:0 0 2px 2px;"></div>
+        <div style="position:absolute;top:16px;right:16px;" class="result-badge" style="font-size:0.6rem;">Most Requested</div>
+        <div class="service-icon">🚀</div>
+        <h3 style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.2rem;color:#fff;margin-bottom:12px;">E-commerce Scaling</h3>
+        <p class="text-gray-500 text-sm leading-relaxed mb-6">Full-funnel paid social strategy that transforms your store from breakeven to 5-8x ROAS. Built to scale sustainably, not just spike briefly.</p>
+        <ul class="space-y-2">
+          <li class="text-gray-400 text-sm flex items-center gap-2"><span style="color:#25D366;">✓</span> Meta + TikTok full-funnel</li>
+          <li class="text-gray-400 text-sm flex items-center gap-2"><span style="color:#25D366;">✓</span> Dynamic catalog campaigns</li>
+          <li class="text-gray-400 text-sm flex items-center gap-2"><span style="color:#25D366;">✓</span> ROAS-optimized scaling</li>
+          <li class="text-gray-400 text-sm flex items-center gap-2"><span style="color:#25D366;">✓</span> Retargeting & LTV growth</li>
+        </ul>
+      </div>
+
+      <div class="card-hover rounded-2xl p-8 reveal reveal-delay-2" style="background:#141414;">
+        <div class="service-icon">🧪</div>
+        <h3 style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.2rem;color:#fff;margin-bottom:12px;">Creative Testing & CRO</h3>
+        <p class="text-gray-500 text-sm leading-relaxed mb-6">Systematic creative experimentation that finds your winning ads fast, slashes wasted spend, and compounds performance over time.</p>
+        <ul class="space-y-2">
+          <li class="text-gray-400 text-sm flex items-center gap-2"><span style="color:#25D366;">✓</span> Multi-variant A/B testing</li>
+          <li class="text-gray-400 text-sm flex items-center gap-2"><span style="color:#25D366;">✓</span> Hook & angle optimization</li>
+          <li class="text-gray-400 text-sm flex items-center gap-2"><span style="color:#25D366;">✓</span> Landing page CRO</li>
+          <li class="text-gray-400 text-sm flex items-center gap-2"><span style="color:#25D366;">✓</span> Performance reporting</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ======================== WHY CHOOSE ME ======================== -->
+<section class="py-24 px-6" style="background:#0d0d0d;">
+  <div class="max-w-7xl mx-auto">
+    <div class="grid lg:grid-cols-2 gap-20 items-center">
+      
+      <div class="reveal">
+        <div class="result-badge mb-6">Why Partner With Me</div>
+        <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(48px,6vw,72px);line-height:1;color:#fff;">THE EDGE THAT DRIVES RESULTS</h2>
+        <div class="section-divider"></div>
+        <p class="text-gray-500 leading-relaxed mb-8">Most media buyers run the same playbook. I build systematic performance engines that compound — turning good campaigns into dominant market positions.</p>
+        
+        <div>
+          <div class="usp-item">
+            <div class="usp-num">01</div>
+            <div>
+              <div style="font-family:'Montserrat',sans-serif;font-weight:700;color:#fff;margin-bottom:4px;">Data-First Decisions</div>
+              <p class="text-gray-500 text-sm">Every budget move is backed by performance data — not gut feelings. I optimize what moves the needle: CPA, ROAS, LTV.</p>
+            </div>
+          </div>
+          <div class="usp-item">
+            <div class="usp-num">02</div>
+            <div>
+              <div style="font-family:'Montserrat',sans-serif;font-weight:700;color:#fff;margin-bottom:4px;">Profitability Over Volume</div>
+              <p class="text-gray-500 text-sm">I don't chase vanity metrics. My campaigns are engineered to deliver profitable leads and sales — period.</p>
+            </div>
+          </div>
+          <div class="usp-item">
+            <div class="usp-num">03</div>
+            <div>
+              <div style="font-family:'Montserrat',sans-serif;font-weight:700;color:#fff;margin-bottom:4px;">Multi-Market Experience</div>
+              <p class="text-gray-500 text-sm">Proven results across Egypt, GCC, and international markets. I understand audience nuance and cultural targeting.</p>
+            </div>
+          </div>
+          <div class="usp-item">
+            <div class="usp-num">04</div>
+            <div>
+              <div style="font-family:'Montserrat',sans-serif;font-weight:700;color:#fff;margin-bottom:4px;">Systematic Scale Framework</div>
+              <p class="text-gray-500 text-sm">Campaigns built with a scaling architecture from day one — ready to 2x, 5x, 10x without breaking efficiency.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right side visual -->
+      <div class="reveal reveal-delay-2">
+        <div style="background:#141414;border:1px solid #1e1e1e;border-radius:24px;padding:32px;position:relative;overflow:hidden;">
+          <div style="position:absolute;top:0;right:0;width:200px;height:200px;background:radial-gradient(circle,rgba(37,211,102,0.08) 0%,transparent 70%);pointer-events:none;"></div>
+          
+          <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.75rem;color:#25D366;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:24px;">Performance Snapshot</div>
+          
+          <!-- Mini chart bars -->
+          <div style="margin-bottom:24px;">
+            <div style="display:flex;justify-content:space-between;margin-bottom:8px;">
+              <span style="font-size:0.8rem;color:#888;">CPA Reduction</span>
+              <span style="font-size:0.8rem;color:#25D366;font-weight:700;">-84%</span>
+            </div>
+            <div style="height:6px;background:#1e1e1e;border-radius:3px;"><div style="height:100%;width:84%;background:linear-gradient(90deg,#25D366,#1aff7a);border-radius:3px;"></div></div>
+          </div>
+          <div style="margin-bottom:24px;">
+            <div style="display:flex;justify-content:space-between;margin-bottom:8px;">
+              <span style="font-size:0.8rem;color:#888;">ROAS Achievement</span>
+              <span style="font-size:0.8rem;color:#25D366;font-weight:700;">8.2x</span>
+            </div>
+            <div style="height:6px;background:#1e1e1e;border-radius:3px;"><div style="height:100%;width:92%;background:linear-gradient(90deg,#25D366,#1aff7a);border-radius:3px;"></div></div>
+          </div>
+          <div style="margin-bottom:24px;">
+            <div style="display:flex;justify-content:space-between;margin-bottom:8px;">
+              <span style="font-size:0.8rem;color:#888;">Lead Volume Growth</span>
+              <span style="font-size:0.8rem;color:#25D366;font-weight:700;">+340%</span>
+            </div>
+            <div style="height:6px;background:#1e1e1e;border-radius:3px;"><div style="height:100%;width:78%;background:linear-gradient(90deg,#25D366,#1aff7a);border-radius:3px;"></div></div>
+          </div>
+          <div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:8px;">
+              <span style="font-size:0.8rem;color:#888;">Client Retention Rate</span>
+              <span style="font-size:0.8rem;color:#25D366;font-weight:700;">95%</span>
+            </div>
+            <div style="height:6px;background:#1e1e1e;border-radius:3px;"><div style="height:100%;width:95%;background:linear-gradient(90deg,#25D366,#1aff7a);border-radius:3px;"></div></div>
+          </div>
+
+          <div style="margin-top:28px;padding-top:24px;border-top:1px solid #1e1e1e;display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+            <div style="background:#111;border-radius:12px;padding:16px;text-align:center;">
+              <div style="font-family:'Bebas Neue',sans-serif;font-size:2rem;color:#fff;line-height:1;">50+</div>
+              <div style="font-size:0.7rem;color:#666;margin-top:4px;">Campaigns Managed</div>
+            </div>
+            <div style="background:#111;border-radius:12px;padding:16px;text-align:center;">
+              <div style="font-family:'Bebas Neue',sans-serif;font-size:2rem;color:#fff;line-height:1;">3+</div>
+              <div style="font-size:0.7rem;color:#666;margin-top:4px;">Years Experience</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ======================== ABOUT ======================== -->
+<section id="about" class="py-24 px-6">
+  <div class="max-w-7xl mx-auto">
+    <div class="grid lg:grid-cols-5 gap-16 items-center">
+      
+      <div class="lg:col-span-3 reveal">
+        <div class="result-badge mb-6">About</div>
+        <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(48px,6vw,72px);line-height:1;color:#fff;">THE STRATEGIST<br>BEHIND THE <span class="text-gradient">RESULTS.</span></h2>
+        <div class="section-divider"></div>
+        
+        <div class="space-y-5 text-gray-400 leading-relaxed">
+          <p>I'm a performance media buyer with a singular focus: turning advertising spend into measurable, scalable business growth. With hands-on experience managing campaigns across real estate, e-commerce, healthcare, and education — I bring a strategic depth that separates high-performing accounts from wasted budgets.</p>
+          
+          <p>My approach is systematic and data-driven. Every campaign I build is structured around one core question: <span style="color:#fff;font-weight:500;">what drives profitable, scalable results for this specific business?</span> That means deep audience research, rigorous creative testing, and relentless optimization until the numbers prove it.</p>
+          
+          <p>I work with clients across the Middle East, GCC, and international markets — adapting strategy to market context, consumer behavior, and business objectives. Whether you're a startup needing your first 100 leads or an established brand scaling to 8-figure revenue, I build the campaign infrastructure to get you there.</p>
+        </div>
+
+        <div class="flex flex-wrap gap-3 mt-8">
+          <div style="background:#141414;border:1px solid #1e1e1e;border-radius:10px;padding:10px 16px;display:flex;align-items:center;gap:8px;">
+            <span style="color:#25D366;">🌍</span>
+            <span style="font-size:0.8rem;color:#888;">Serving USA · GCC · Europe · MENA</span>
+          </div>
+          <div style="background:#141414;border:1px solid #1e1e1e;border-radius:10px;padding:10px 16px;display:flex;align-items:center;gap:8px;">
+            <span style="color:#25D366;">📊</span>
+            <span style="font-size:0.8rem;color:#888;">Meta Blueprint Certified</span>
+          </div>
+          <div style="background:#141414;border:1px solid #1e1e1e;border-radius:10px;padding:10px 16px;display:flex;align-items:center;gap:8px;">
+            <span style="color:#25D366;">💬</span>
+            <span style="font-size:0.8rem;color:#888;">Arabic & English fluent</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Skills tags -->
+      <div class="lg:col-span-2 reveal reveal-delay-2">
+        <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.75rem;color:#666;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:20px;">Skill Set</div>
+        <div class="flex flex-wrap gap-3">
+          <span class="skill-tag rounded-xl px-4 py-2.5 text-sm text-gray-300 cursor-default">Facebook Ads</span>
+          <span class="skill-tag rounded-xl px-4 py-2.5 text-sm text-gray-300 cursor-default">Instagram Ads</span>
+          <span class="skill-tag rounded-xl px-4 py-2.5 text-sm text-gray-300 cursor-default">TikTok Ads</span>
+          <span class="skill-tag rounded-xl px-4 py-2.5 text-sm text-gray-300 cursor-default">Meta Ads Manager</span>
+          <span class="skill-tag rounded-xl px-4 py-2.5 text-sm text-gray-300 cursor-default">Campaign Analytics</span>
+          <span class="skill-tag rounded-xl px-4 py-2.5 text-sm text-gray-300 cursor-default">CRO</span>
+          <span class="skill-tag rounded-xl px-4 py-2.5 text-sm text-gray-300 cursor-default">Landing Pages</span>
+          <span class="skill-tag rounded-xl px-4 py-2.5 text-sm text-gray-300 cursor-default">Creative Testing</span>
+          <span class="skill-tag rounded-xl px-4 py-2.5 text-sm text-gray-300 cursor-default">Pixel Setup</span>
+          <span class="skill-tag rounded-xl px-4 py-2.5 text-sm text-gray-300 cursor-default">Audience Research</span>
+          <span class="skill-tag rounded-xl px-4 py-2.5 text-sm text-gray-300 cursor-default">HTML/CSS</span>
+          <span class="skill-tag rounded-xl px-4 py-2.5 text-sm text-gray-300 cursor-default">Photoshop</span>
+          <span class="skill-tag rounded-xl px-4 py-2.5 text-sm text-gray-300 cursor-default">CapCut</span>
+          <span class="skill-tag rounded-xl px-4 py-2.5 text-sm text-gray-300 cursor-default">A/B Testing</span>
+          <span class="skill-tag rounded-xl px-4 py-2.5 text-sm text-gray-300 cursor-default">Budget Scaling</span>
+          <span class="skill-tag rounded-xl px-4 py-2.5 text-sm text-gray-300 cursor-default">Lookalike Audiences</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ======================== TESTIMONIALS ======================== -->
+<section id="testimonials" class="py-24 px-6" style="background:#0d0d0d;">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-16 reveal">
+      <div class="result-badge mb-4">Client Testimonials</div>
+      <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(48px,7vw,80px);line-height:1;color:#fff;">WHAT CLIENTS SAY</h2>
+      <p class="text-gray-500 mt-4">Real feedback from real business owners who scaled with performance advertising.</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+
+      <div class="testimonial-card rounded-2xl p-7 reveal">
+        <div class="flex items-center gap-1 mb-4">
+          <span style="color:#25D366;font-size:1rem;">★★★★★</span>
+        </div>
+        <p class="text-gray-400 text-sm leading-relaxed mb-6">"Mahmoud transformed our real estate campaigns completely. We went from spending $15 per lead to $2.40 — with better quality leads that actually close. Within 3 months, our sales team was overwhelmed with qualified inquiries."</p>
+        <div class="flex items-center gap-3">
+          <div style="width:40px;height:40px;background:linear-gradient(135deg,#25D366,#1aff7a);border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:1.1rem;color:#000;">A</div>
+          <div>
+            <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.85rem;color:#fff;">Ahmed Al-Rashidi</div>
+            <div style="font-size:0.72rem;color:#666;">Real Estate Developer, UAE</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card rounded-2xl p-7 reveal reveal-delay-1">
+        <div class="flex items-center gap-1 mb-4">
+          <span style="color:#25D366;font-size:1rem;">★★★★★</span>
+        </div>
+        <p class="text-gray-400 text-sm leading-relaxed mb-6">"Our e-commerce store went from barely profitable to $85K/month in revenue. The full-funnel approach he built is a machine — new customers coming in, existing customers coming back. Our ROAS peaked at 8.2x."</p>
+        <div class="flex items-center gap-3">
+          <div style="width:40px;height:40px;background:linear-gradient(135deg,#FF6B6B,#FF2D2D);border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:1.1rem;color:#fff;">S</div>
+          <div>
+            <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.85rem;color:#fff;">Sara Mohamed</div>
+            <div style="font-size:0.72rem;color:#666;">Fashion Brand Owner, Egypt</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card rounded-2xl p-7 reveal reveal-delay-2">
+        <div class="flex items-center gap-1 mb-4">
+          <span style="color:#25D366;font-size:1rem;">★★★★★</span>
+        </div>
+        <p class="text-gray-400 text-sm leading-relaxed mb-6">"Launched my first online course with zero audience. Mahmoud got us 1,800 registrations in 30 days — 340% past our target. The cost per lead was incredibly low. He knows exactly what he's doing."</p>
+        <div class="flex items-center gap-3">
+          <div style="width:40px;height:40px;background:linear-gradient(135deg,#ffc800,#ff9500);border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:1.1rem;color:#000;">K</div>
+          <div>
+            <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.85rem;color:#fff;">Khalid Hassan</div>
+            <div style="font-size:0.72rem;color:#666;">Online Educator, KSA</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card rounded-2xl p-7 reveal">
+        <div class="flex items-center gap-1 mb-4">
+          <span style="color:#25D366;font-size:1rem;">★★★★★</span>
+        </div>
+        <p class="text-gray-400 text-sm leading-relaxed mb-6">"Our clinic needed a steady stream of appointments. Mahmoud delivered 2,400+ qualified patient leads in 6 months at $1.20 each. The ROI was 5x what we expected. Excellent communicator and very results-focused."</p>
+        <div class="flex items-center gap-3">
+          <div style="width:40px;height:40px;background:linear-gradient(135deg,#a855f7,#c084fc);border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:1.1rem;color:#fff;">N</div>
+          <div>
+            <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.85rem;color:#fff;">Dr. Nour El-Din</div>
+            <div style="font-size:0.72rem;color:#666;">Medical Clinic Director, Cairo</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card rounded-2xl p-7 reveal reveal-delay-1">
+        <div class="flex items-center gap-1 mb-4">
+          <span style="color:#25D366;font-size:1rem;">★★★★★</span>
+        </div>
+        <p class="text-gray-400 text-sm leading-relaxed mb-6">"I've worked with 3 media buyers before Mahmoud. None of them came close to these results. He actually understands business — not just ad platforms. Our CAC dropped 60% in the first month."</p>
+        <div class="flex items-center gap-3">
+          <div style="width:40px;height:40px;background:linear-gradient(135deg,#06b6d4,#0891b2);border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:1.1rem;color:#fff;">O</div>
+          <div>
+            <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.85rem;color:#fff;">Omar Fathy</div>
+            <div style="font-size:0.72rem;color:#666;">SaaS Founder, Egypt</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card rounded-2xl p-7 reveal reveal-delay-2">
+        <div class="flex items-center gap-1 mb-4">
+          <span style="color:#25D366;font-size:1rem;">★★★★★</span>
+        </div>
+        <p class="text-gray-400 text-sm leading-relaxed mb-6">"Professional, transparent, and obsessed with performance. He sends weekly reports before I even ask, and every optimization he makes is explained clearly. Our brand grew 200% in 4 months."</p>
+        <div class="flex items-center gap-3">
+          <div style="width:40px;height:40px;background:linear-gradient(135deg,#f97316,#ef4444);border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:1.1rem;color:#fff;">L</div>
+          <div>
+            <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.85rem;color:#fff;">Laila Karim</div>
+            <div style="font-size:0.72rem;color:#666;">Beauty Brand, Qatar</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ======================== FINAL CTA ======================== -->
+<section class="py-32 px-6 relative overflow-hidden" style="background:linear-gradient(160deg,#0B0B0B 0%,#0d1a0d 50%,#0B0B0B 100%);">
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 50% 50%,rgba(37,211,102,0.06) 0%,transparent 70%);pointer-events:none;"></div>
+  <div style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(37,211,102,0.3),transparent);"></div>
+  
+  <div class="max-w-4xl mx-auto text-center reveal">
+    <div class="result-badge mb-8 mx-auto" style="display:inline-block;">Ready to Scale?</div>
+    <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(56px,10vw,110px);line-height:0.92;color:#fff;margin-bottom:24px;">
+      READY TO SCALE<br><span class="text-gradient">YOUR BUSINESS?</span>
+    </h2>
+    <p class="text-gray-400 text-lg leading-relaxed max-w-2xl mx-auto mb-12">
+      Let's build profitable campaigns that drive real growth. I take on a limited number of clients each month to ensure maximum focus and results for each one.
+    </p>
+
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+      <a href="https://wa.me/201009770363?text=Hi%20Mahmoud,%20I%20saw%20your%20portfolio%20and%20I%20want%20to%20work%20with%20you." target="_blank" class="wa-btn px-10 py-5 rounded-2xl text-black font-heading text-lg flex items-center gap-3 w-full sm:w-auto justify-center" style="font-family:'Montserrat',sans-serif;font-weight:800;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="black"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Message on WhatsApp
       </a>
-      <a href="#results" class="btn-outline">View My Results</a>
+      <div style="color:#444;font-size:0.85rem;">or</div>
+      <a href="mailto:mahmoud@example.com" class="px-10 py-5 rounded-2xl border border-border text-gray-300 hover:text-white hover:border-gray-600 transition-all font-heading text-base w-full sm:w-auto text-center" style="font-family:'Montserrat',sans-serif;font-weight:600;">
+        Send an Email
+      </a>
     </div>
-  </div>
-  <div class="hero-img"><div class="hero-img-face"></div></div>
-</div>
 
-<!-- STATS BAR -->
-
-<div class="stats-bar" id="results">
-  <div class="stat-item">
-    <div class="stat-icon">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-    </div>
-    <div>
-      <div><span class="stat-num">9,312</span><span class="stat-unit">EGP</span></div>
-      <div class="stat-label">Total Ad Spend</div>
-    </div>
-  </div>
-  <div class="stat-item">
-    <div class="stat-icon">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
-    </div>
-    <div>
-      <div><span class="stat-num">5,886</span></div>
-      <div class="stat-label">Total Results</div>
-    </div>
-  </div>
-  <div class="stat-item">
-    <div class="stat-icon">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
-    </div>
-    <div>
-      <div><span class="stat-num">1.47</span><span class="stat-unit">EGP</span></div>
-      <div class="stat-label">Best Cost Per Result</div>
-    </div>
-  </div>
-  <div class="stat-item">
-    <div class="stat-icon">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
-    </div>
-    <div>
-      <div><span class="stat-num">540</span><span class="stat-unit" style="font-size:11px;margin-left:3px">Conversations</span></div>
-      <div class="stat-label">Top Campaign</div>
-    </div>
-  </div>
-</div>
-
-<!-- CASE STUDIES -->
-
-<section class="cases" id="cases" style="padding-top:70px;">
-  <div class="section-title-row">
-    <div>
-      <div class="section-tag">Case Studies</div>
-      <div class="section-title" style="margin-bottom:0">Real Campaigns. Real Results.</div>
-    </div>
-    <a href="#" class="view-more">View More Results →</a>
-  </div>
-  <div class="cases-grid">
-    <!-- Card 1 -->
-    <div class="case-card">
-      <div class="case-header">
-        <div class="case-icon">
-          <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-        </div>
-        <div class="case-name">Elhamady Cam Massage (1)</div>
-      </div>
-      <div class="case-label">The Challenge</div>
-      <div class="case-desc">Generate conversations at the lowest cost possible.</div>
-      <div class="case-label">Our Strategy</div>
-      <div class="case-desc">Targeted audience + compelling creatives + placement optimization.</div>
-      <div style="font-size:12px;font-weight:600;margin-top:6px;">Results</div>
-      <div class="case-results">
-        <div>
-          <div class="result-num">6</div>
-          <div class="result-label">Conversations</div>
-        </div>
-        <div>
-          <div><span class="result-num">1.47</span><span class="result-unit"> EGP</span></div>
-          <div class="result-label">Cost Per Result</div>
-        </div>
-      </div>
-    </div>
-    <!-- Card 2 -->
-    <div class="case-card">
-      <div class="case-header">
-        <div class="case-icon">
-          <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-        </div>
-        <div class="case-name">Campaign 011</div>
-      </div>
-      <div class="case-label">The Challenge</div>
-      <div class="case-desc">Scale conversations while maintaining low cost.</div>
-      <div class="case-label">Our Strategy</div>
-      <div class="case-desc">Rebuilt audience + creative testing + cost control.</div>
-      <div style="font-size:12px;font-weight:600;margin-top:6px;">Results</div>
-      <div class="case-results">
-        <div>
-          <div class="result-num">540</div>
-          <div class="result-label">Conversations</div>
-        </div>
-        <div>
-          <div><span class="result-num">5.80</span><span class="result-unit"> EGP</span></div>
-          <div class="result-label">Cost Per Result</div>
-        </div>
-      </div>
-    </div>
-    <!-- Card 3 -->
-    <div class="case-card">
-      <div class="case-header">
-        <div class="case-icon" style="background:#16a34a;">
-          <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-        </div>
-        <div class="case-name">Video Engagement Ramadan</div>
-      </div>
-      <div class="case-label">The Challenge</div>
-      <div class="case-desc">Get massive engagement at the lowest possible cost.</div>
-      <div class="case-label">Our Strategy</div>
-      <div class="case-desc">Content hook + broad targeting + video optimization.</div>
-      <div style="font-size:12px;font-weight:600;margin-top:6px;">Results</div>
-      <div class="case-results">
-        <div>
-          <div class="result-num">4,206</div>
-          <div class="result-label">Engagements</div>
-        </div>
-        <div>
-          <div><span class="result-num">0.088</span><span class="result-unit"> EGP</span></div>
-          <div class="result-label">Cost Per Result</div>
-        </div>
-      </div>
-    </div>
-    <!-- Card 4 -->
-    <div class="case-card">
-      <div class="case-header">
-        <div class="case-icon">
-          <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-        </div>
-        <div class="case-name">Agial Views Portsaid</div>
-      </div>
-      <div class="case-label">The Challenge</div>
-      <div class="case-desc">Increase engagement & brand awareness.</div>
-      <div class="case-label">Our Strategy</div>
-      <div class="case-desc">Interest targeting + creative optimization.</div>
-      <div style="font-size:12px;font-weight:600;margin-top:6px;">Results</div>
-      <div class="case-results">
-        <div>
-          <div class="result-num">181</div>
-          <div class="result-label">Engagements</div>
-        </div>
-        <div>
-          <div><span class="result-num">2.66</span><span class="result-unit"> EGP</span></div>
-          <div class="result-label">Cost Per Result</div>
-        </div>
-      </div>
+    <div class="flex flex-wrap justify-center gap-6 mt-12 text-gray-600 text-sm">
+      <span>✓ Response within 24 hours</span>
+      <span>✓ Free initial strategy consultation</span>
+      <span>✓ No long-term lock-ins</span>
     </div>
   </div>
 </section>
 
-<!-- SERVICES -->
-
-<section class="services" id="services">
-  <div class="section-tag">Services</div>
-  <div class="section-title">What I Can Help You Achieve</div>
-  <div class="services-grid">
-    <div class="service-card">
-      <div class="service-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-      </div>
+<!-- ======================== CONTACT + FOOTER ======================== -->
+<footer id="contact" style="background:#080808;border-top:1px solid #141414;padding:48px 24px 32px;">
+  <div class="max-w-7xl mx-auto">
+    <div class="grid md:grid-cols-3 gap-12 mb-12">
+      
       <div>
-        <div class="service-title">Lead Generation Campaigns</div>
-        <div class="service-desc">High-quality leads at the lowest cost through advanced targeting and conversion strategies.</div>
-      </div>
-    </div>
-    <div class="service-card">
-      <div class="service-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-      </div>
-      <div>
-        <div class="service-title">E-commerce Scaling</div>
-        <div class="service-desc">Scale your online store profitably with data-backed campaigns and testing frameworks.</div>
-      </div>
-    </div>
-    <div class="service-card">
-      <div class="service-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
-      </div>
-      <div>
-        <div class="service-title">Creative Testing & Optimization</div>
-        <div class="service-desc">Test, analyze, and optimize creatives that increase performance and reduce costs.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ABOUT -->
-
-<section class="about" id="about">
-  <div class="about-grid">
-    <div class="about-text">
-      <div class="section-tag">About Me</div>
-      <h2>Hi, I'm Mahmoud Elhady</h2>
-      <p>I'm a Media Buyer with experience in running profitable ad campaigns across multiple industries in Egypt & Saudi Arabia. I focus on data, strategies, and creatives that drive real business growth — not just clicks.</p>
-      <div class="about-meta">
-        <div class="about-meta-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          Based in Mansoura, Egypt
+        <div class="flex items-center gap-3 mb-5">
+          <div style="width:38px;height:38px;background:linear-gradient(135deg,#25D366,#1aff7a);border-radius:10px;display:flex;align-items:center;justify-content:center;">
+            <span style="font-family:'Bebas Neue',sans-serif;font-size:20px;color:#000;line-height:1;">M</span>
+          </div>
+          <span style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1rem;">Mahmoud<span class="text-gradient">.</span></span>
         </div>
-        <div class="about-meta-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-          Available for projects worldwide
+        <p class="text-gray-600 text-sm leading-relaxed">Performance media buyer turning ad spend into real business growth. Serving clients across the Middle East, GCC, and internationally.</p>
+      </div>
+
+      <div>
+        <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.75rem;color:#444;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:16px;">Contact</div>
+        <div class="space-y-3">
+          <a href="https://wa.me/201009770363?text=Hi%20Mahmoud,%20I%20saw%20your%20portfolio%20and%20I%20want%20to%20work%20with%20you." target="_blank" class="flex items-center gap-3 text-gray-500 hover:text-white transition-colors text-sm">
+            <span style="color:#25D366;">📱</span> +20 100 977 0363 (WhatsApp)
+          </a>
+          <a href="mailto:mahmoud@example.com" class="flex items-center gap-3 text-gray-500 hover:text-white transition-colors text-sm">
+            <span style="color:#25D366;">✉️</span> mahmoud@example.com
+          </a>
+          <div class="flex items-center gap-3 text-gray-500 text-sm">
+            <span style="color:#25D366;">📍</span> Egypt · Available Worldwide
+          </div>
         </div>
       </div>
+
+      <div>
+        <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.75rem;color:#444;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:16px;">Quick Links</div>
+        <div class="grid grid-cols-2 gap-2">
+          <a href="#about" class="text-gray-600 hover:text-white text-sm transition-colors">About</a>
+          <a href="#services" class="text-gray-600 hover:text-white text-sm transition-colors">Services</a>
+          <a href="#cases" class="text-gray-600 hover:text-white text-sm transition-colors">Case Studies</a>
+          <a href="#results" class="text-gray-600 hover:text-white text-sm transition-colors">Results</a>
+          <a href="#testimonials" class="text-gray-600 hover:text-white text-sm transition-colors">Testimonials</a>
+          <a href="https://wa.me/201009770363?text=Hi%20Mahmoud,%20I%20saw%20your%20portfolio%20and%20I%20want%20to%20work%20with%20you." target="_blank" class="text-gradient text-sm">Start Now →</a>
+        </div>
+      </div>
+
     </div>
-    <div class="skills-section">
-      <h3>Skills &amp; Platforms</h3>
-      <div class="skills-tags">
-        <span class="skill-tag">Facebook Ads</span>
-        <span class="skill-tag">Instagram Ads</span>
-        <span class="skill-tag">TikTok Ads</span>
-        <span class="skill-tag">Analytics</span>
-        <span class="skill-tag">CRO</span>
-        <span class="skill-tag">Landing Pages</span>
-        <span class="skill-tag">Photoshop</span>
-        <span class="skill-tag">CapCut</span>
-        <span class="skill-tag">Python</span>
-        <span class="skill-tag">HTML / CSS</span>
+
+    <div style="border-top:1px solid #141414;padding-top:24px;display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;">
+      <p class="text-gray-700 text-xs">© 2025 Mahmoud. All rights reserved. Performance Media Buying & Growth Strategy.</p>
+      <div class="flex items-center gap-2">
+        <div style="width:6px;height:6px;background:#25D366;border-radius:50%;animation:pulse-wa 2s infinite;"></div>
+        <span class="text-gray-700 text-xs">Available for new projects</span>
       </div>
     </div>
   </div>
-</section>
-
-<!-- TESTIMONIALS -->
-
-<section class="testimonials" id="testimonials">
-  <div class="section-tag">Testimonials</div>
-  <div class="section-title">What Clients Say</div>
-  <div class="testimonials-grid">
-    <div class="testi-card">
-      <div class="quote-icon">"</div>
-      <div class="testi-text">Mahmoud helped us reduce our cost per lead by more than 60% and scaled our business consistently.</div>
-      <div class="testi-author">Omar A.</div>
-      <div class="testi-role">Business Owner</div>
-    </div>
-    <div class="testi-card">
-      <div class="quote-icon">"</div>
-      <div class="testi-text">Very professional, data-driven, and always focused on results. Highly recommended!</div>
-      <div class="testi-author">Sara M.</div>
-      <div class="testi-role">E-commerce Store Owner</div>
-    </div>
-    <div class="testi-card">
-      <div class="quote-icon">"</div>
-      <div class="testi-text">Best media buyer I've worked with. Great communication and amazing results.</div>
-      <div class="testi-author">Ahmed R.</div>
-      <div class="testi-role">Entrepreneur</div>
-    </div>
-  </div>
-</section>
-
-<!-- CTA / CONTACT -->
-
-<div class="cta" id="contact">
-  <div class="cta-left">
-    <div class="cta-tag">Let's Work Together</div>
-    <h2>Ready to Scale Your Business?</h2>
-    <p>Let's create high-performing campaigns that deliver real results.</p>
-    <a href="https://wa.me/201009770363" class="btn-wa" target="_blank" style="width:fit-content;">
-      <svg viewBox="0 0 24 24" fill="currentColor" style="width:16px;height:16px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.05.5C5.495.5.065 5.928.065 12.484c0 2.122.547 4.114 1.503 5.849L.001 23.5l5.296-1.543a11.963 11.963 0 005.753 1.47h.005c6.554 0 11.984-5.428 11.984-11.984C23.039 5.887 18.603.5 12.05.5zm-.001 21.949a9.934 9.934 0 01-5.066-1.382l-.363-.216-3.145.916.894-3.073-.237-.376A9.907 9.907 0 012.065 12.48C2.065 6.988 6.557 2.5 12.05 2.5c5.49 0 9.983 4.488 9.983 9.98 0 5.494-4.494 9.969-9.984 9.969z"/></svg>
-      Message Me on WhatsApp
-    </a>
-  </div>
-  <div class="cta-right">
-    <div class="contact-item">
-      <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16z"/></svg>
-      01009770363
-    </div>
-    <div class="contact-item">
-      <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-      mahmoudalhady2020@gmail.com
-    </div>
-    <div class="contact-item">
-      <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-      Mansoura, Egypt
-    </div>
-  </div>
-</div>
-
-<footer>
-  © 2025 Mahmoud Elhady. All Rights Reserved.
 </footer>
+
+<!-- ======================== JAVASCRIPT ======================== -->
+<script>
+  // Navbar scroll effect
+  const navbar = document.querySelector('.navbar');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 60) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  });
+
+  // Mobile menu
+  const menuToggle = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const h1 = document.getElementById('h1');
+  const h3 = document.getElementById('h3');
+  let menuOpen = false;
+
+  menuToggle.addEventListener('click', () => {
+    menuOpen = !menuOpen;
+    mobileMenu.classList.toggle('hidden');
+    h1.style.transform = menuOpen ? 'rotate(45deg) translate(5px,5px)' : '';
+    h3.style.transform = menuOpen ? 'rotate(-45deg) translate(3px,-4px)' : '';
+    h3.style.width = menuOpen ? '24px' : '16px';
+  });
+
+  // Close mobile menu on link click
+  document.querySelectorAll('.mobile-nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      menuOpen = false;
+      mobileMenu.classList.add('hidden');
+      h1.style.transform = '';
+      h3.style.transform = '';
+      h3.style.width = '16px';
+    });
+  });
+
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  revealEls.forEach(el => observer.observe(el));
+
+  // Counter animation
+  function animateCounter(el, target, suffix = '', prefix = '') {
+    let current = 0;
+    const duration = 2000;
+    const step = target / (duration / 16);
+    const timer = setInterval(() => {
+      current += step;
+      if (current >= target) {
+        current = target;
+        clearInterval(timer);
+      }
+      el.textContent = prefix + Math.floor(current).toLocaleString() + suffix;
+    }, 16);
+  }
+
+  // Observe stat cards for counter animation
+  const statNums = document.querySelectorAll('.metric-num[data-target]');
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !entry.target.dataset.animated) {
+        entry.target.dataset.animated = 'true';
+        const target = parseInt(entry.target.dataset.target);
+        const el = entry.target;
+        if (target === 500) animateCounter(el, target, 'K+', '$');
+        else if (target === 10000) animateCounter(el, target, '+');
+      }
+    });
+  }, { threshold: 0.5 });
+  statNums.forEach(el => counterObserver.observe(el));
+
+  // Smooth active nav highlight on scroll
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-link');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 120;
+      if (window.scrollY >= sectionTop) {
+        current = section.getAttribute('id');
+      }
+    });
+    navLinks.forEach(link => {
+      link.style.color = '';
+      if (link.getAttribute('href') === '#' + current) {
+        link.style.color = '#fff';
+      }
+    });
+  });
+</script>
 
 </body>
 </html>
