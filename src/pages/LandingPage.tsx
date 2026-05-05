@@ -19,7 +19,7 @@ interface LandingPageProps {
   serviceType?: string;
 }
 
-const LandingPage = (_props: LandingPageProps) => {
+const LandingPage = ({ title, description, serviceType }: LandingPageProps) => {
   useEffect(() => {
     window.scrollTo(0, 0);
     const timer = setTimeout(() => {
